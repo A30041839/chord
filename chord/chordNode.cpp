@@ -10,10 +10,11 @@
 
 namespace CHORD {
     //implements constructor
-    chordNode::chordNode(std::string _hostname, int _portno) {
+    chordNode::chordNode(std::string _hostname, int _portno, std::string _machine_name) {
         DEBUG_PRINT("Creating chordNode");
         thisNode.hostname = _hostname;
-        thisNode.identifier = getHashcode(_hostname);
+        thisNode.machine_name = _machine_name;
+        thisNode.identifier = getHashcode(_machine_name);
         thisNode.portno = _portno;
         
         gotDetectNodeResponse = initiated = false;
@@ -61,7 +62,6 @@ namespace CHORD {
     void chordNode::sendData(std::ifstream& is, node_t dest_node, std::string key, int size) {
         DEBUG_PRINT("ChordNode sending data");
         chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageDataInfo(thisNode, dest_node, key, size);
-        chordMessager::chordMessageBase* inmsg = nullptr;
         int newmessager = getUsableMessager();
         if (newmessager == -1) {
             throw ERRORS::chordMessagerNoUsableMessager();
@@ -76,6 +76,7 @@ namespace CHORD {
         std::string ack = messagerPool[newmessager].readMessage();
         messagerPool[newmessager].sendData(is, size);
         ack = messagerPool[newmessager].readMessage();
+        delete outmsg;
         freeMessager(newmessager);
     }
     
@@ -117,11 +118,12 @@ namespace CHORD {
         if (dest_node == thisNode) {
             return getSuccessor();
         }
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageGetSuccessor(thisNode, dest_node);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageGetSuccessor(thisNode, dest_node);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         node_t ret = inmsg->getNodeParam()[0];
         delete inmsg;
+        delete outmsg;
         return ret;
     }
     
@@ -129,44 +131,49 @@ namespace CHORD {
         if (dest_node == thisNode) {
             return getPredecessor();
         }
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageGetPredecessor(thisNode, dest_node);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageGetPredecessor(thisNode, dest_node);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         node_t ret = inmsg->getNodeParam()[0];
         delete inmsg;
+        delete outmsg;
         return ret;
     }
     
     void chordNode::updateRemoteFingerTable(node_t dest_node, node_t node_param, identifier_t int_param) {
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageUpdateFingerTable(thisNode, dest_node, node_param, int_param);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageUpdateFingerTable(thisNode, dest_node, node_param, int_param);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         delete inmsg;
+        delete outmsg;
     }
     
     void chordNode::removeRemoteNode(node_t dest_node, node_t node_param1, node_t node_param2, identifier_t int_param) {
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageRemoveNode(thisNode, dest_node, node_param1, node_param2, int_param);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageRemoveNode(thisNode, dest_node, node_param1, node_param2, int_param);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         delete inmsg;
+        delete outmsg;
     }
     
     void chordNode::setRemotePredecessor(node_t dest_node, node_t node_param) {
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageSetPredecessor(thisNode, dest_node, node_param);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageSetPredecessor(thisNode, dest_node, node_param);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         delete inmsg;
+        delete outmsg;
     }
     
     node_t chordNode::findRemoteSuccessor(node_t dest_node, identifier_t int_param) {
         if (dest_node == thisNode) {
             return findSuccessor(int_param);
         }
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageFindSuccessor(thisNode, dest_node, int_param);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageFindSuccessor(thisNode, dest_node, int_param);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         node_t ret = inmsg->getNodeParam()[0];
         delete inmsg;
+        delete outmsg;
         return ret;
     }
     
@@ -174,18 +181,20 @@ namespace CHORD {
         if (dest_node == thisNode) {
             return closestPrecedingFinger(int_param);
         }
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageClosestPrecedingFinger(thisNode, dest_node, int_param);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageClosestPrecedingFinger(thisNode, dest_node, int_param);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         node_t ret = inmsg->getNodeParam()[0];
         delete inmsg;
+        delete outmsg;
         return ret;
     }
     
     //find id's successor
     node_t chordNode::findSuccessor(identifier_t id) {
         DEBUG_PRINT("Find successor");
-        return getRemoteSuccessor(findPredecessor(id));
+        node_t n = getRemoteSuccessor(findPredecessor(id));
+        return n;
     }
     
     //find id's predecessor
@@ -224,6 +233,8 @@ namespace CHORD {
         }else {
             initFingerTable(existNode);
             updateOthers();
+            //move keys from the successor that should be placed on this node
+            moveSuccessorKeysToLocal();
         }
         initiated = true;
         DEBUG_PRINT("Node successfully joined the network!");
@@ -270,15 +281,24 @@ namespace CHORD {
         }
     }
     
-    void chordNode::leave() {
-        DEBUG_PRINT("chord node is leaving the network");
-        if (thisNode == getSuccessor()) {
-            return;
+    void chordNode::moveSuccessorKeysToLocal() {
+        node_t successor = getSuccessor();
+        std::vector<std::string> successor_keys = getRemoteStoredKeys(successor);
+        for (std::string key : successor_keys) {
+            if (inRange(getHashcode(key), predecessor.identifier, thisNode.identifier)) {
+                addKeyLocal(key);
+                fetchKeyValue(key);
+                removeKeyRemote(key, successor);
+                removeRemoteDataFromDisk(key, successor);
+            }
         }
-        node_t cur_successor = getSuccessor();
+    }
+    
+    void chordNode::moveLocalKeysToSuccessor() {
         //move all keys to successor
+        node_t successor = getSuccessor();
         for (auto iter = stored_keys.begin(); iter != stored_keys.end(); ++iter) {
-            addKeyRemote(iter->first, cur_successor);
+            addKeyRemote(iter->first, successor);
         }
         //send all local files to successor
         for (auto iter = stored_keys.begin(); iter != stored_keys.end(); ++iter) {
@@ -289,9 +309,22 @@ namespace CHORD {
             is.seekg(0, is.end);
             int size = is.tellg();
             is.seekg(0, is.beg);
-            sendData(is, cur_successor, iter->first, size);
+            sendData(is, successor, iter->first, size);
             is.close();
         }
+        //remove all local stored file data
+        for (auto& p : stored_keys) {
+            removeLocalDataFromDisk(p.first);
+        }
+    }
+    
+    void chordNode::leave() {
+        DEBUG_PRINT("chord node is leaving the network");
+        if (thisNode == getSuccessor()) {
+            return;
+        }
+        moveLocalKeysToSuccessor();
+        node_t cur_successor = getSuccessor();
         setRemotePredecessor(cur_successor, predecessor);
         for (int i = 1; i <= IDENTIFIER_LEN; ++i) {
             node_t p = findPredecessor(thisNode.identifier - (identifier_t)pow(2, i - 1) + 1);
@@ -329,15 +362,70 @@ namespace CHORD {
         return thisNode.portno;
     }
     
+    std::string chordNode::getMachineName() {
+        return thisNode.machine_name;
+    }
     
     //key storage
-    
     void chordNode::storeKeyValue(std::string key, std::ifstream& is, int size) {
         //first add key to chord node
         addKey(key);
         //send value to that node
         node_t dest_node = getKeyHostNode(key);
         sendData(is, dest_node, key, size);
+    }
+    
+    void chordNode::fetchKeyValue(std::string key) {
+        node_t dest_node = getKeyHostNode(key);
+        if (dest_node == thisNode) {
+            //the key is stored locally
+            return;
+        }
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageDataRequest(thisNode, dest_node, key);
+        int newmessager = getUsableMessager();
+        if (newmessager == -1) {
+            throw ERRORS::chordMessagerNoUsableMessager();
+        }
+        messagerPool[newmessager].setMode(1);
+        messagerPool[newmessager].setRemoteHost(outmsg->getDestHostname());
+        messagerPool[newmessager].setRemotePort(outmsg->getDestPortno());
+        messagerPool[newmessager].init();
+        messagerPool[newmessager].startConnect();
+        std::string serialized_msg = outmsg->serialize();
+        messagerPool[newmessager].sendMessage(serialized_msg);
+        std::string msg = messagerPool[newmessager].readMessage();
+        chordMessager::chordMessageBase* inmsg = nullptr;
+        messagerPool[newmessager].deserializeMessage(msg, inmsg);
+        int size = inmsg->getIntParam()[0];
+        messagerPool[newmessager].sendMessage("ack");
+        std::ofstream os(datapath + "/" + key);
+        if (!os) {
+            throw ERRORS::chordFileCreateFail();
+        }
+        messagerPool[newmessager].receiveData(os, size);
+        messagerPool[newmessager].sendMessage("ack");
+        os.close();
+        delete outmsg;
+        delete inmsg;
+        freeMessager(newmessager);
+    }
+    
+    void chordNode::sendRequestData(int messager, std::string key) {
+        std::ifstream is(datapath + key);
+        if (!is) {
+            throw ERRORS::chordFileOpenFail();
+        }
+        is.seekg(0, is.end);
+        int size = is.tellg();
+        is.seekg(0, is.beg);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageDataInfo(node_t(), node_t(), key, size);
+        std::string serialized_msg = outmsg->serialize();
+        messagerPool[messager].sendMessage(serialized_msg);
+        std::string ack = messagerPool[messager].readMessage();
+        messagerPool[messager].sendData(is, size);
+        ack = messagerPool[messager].readMessage();
+        is.close();
+        delete outmsg;
     }
     
     void chordNode::addKey(std::string key) {
@@ -354,11 +442,11 @@ namespace CHORD {
     }
     
     void chordNode::addKeyRemote(std::string key, node_t dest_node) {
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageStoreKey(thisNode, dest_node, key);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageStoreKey(thisNode, dest_node, key);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         delete inmsg;
-        
+        delete outmsg;
     }
     
     void chordNode::removeKey(std::string key) {
@@ -377,10 +465,11 @@ namespace CHORD {
     }
     
     void chordNode::removeKeyRemote(std::string key, node_t dest_node) {
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageEraseKey(thisNode, dest_node, key);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageEraseKey(thisNode, dest_node, key);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
+        makeRequest(outmsg, inmsg);
         delete inmsg;
+        delete outmsg;
     }
     
     bool chordNode::hasKey(std::string key) {
@@ -398,10 +487,13 @@ namespace CHORD {
     
     bool chordNode::hasKeyRemote(std::string key, node_t dest_node) {
         node_t hostnode = getKeyHostNode(key);
-        chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageHasKey(thisNode, dest_node, key);
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageHasKey(thisNode, dest_node, key);
         chordMessager::chordMessageBase* inmsg = nullptr;
-        makeRequest(newmsg, inmsg);
-        return inmsg->getIntParam()[0] == 1;
+        makeRequest(outmsg, inmsg);
+        bool ret = inmsg->getIntParam()[0] == 1;
+        delete inmsg;
+        delete outmsg;
+        return ret;
     }
     
     std::vector<std::string> chordNode::getLocalStoredKeys() {
@@ -412,17 +504,27 @@ namespace CHORD {
         return keys;
     }
     
+    std::vector<std::string> chordNode::getRemoteStoredKeys(node_t dest_node) {
+        chordMessager::chordMessageBase* inmsg = nullptr;
+        std::vector<std::string> keys;
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageRetrieveKeys(thisNode, dest_node);
+        makeRequest(outmsg, inmsg);
+        for (std::string key: inmsg->getKeyParam()) {
+            keys.push_back(key);
+        }
+        delete inmsg;
+        delete outmsg;
+        return keys;
+    }
+    
     std::vector<std::string> chordNode::getGlobalStoredKeys() {
         std::vector<std::string> keys = getLocalStoredKeys();
         node_t next_node = getSuccessor();
-        chordMessager::chordMessageBase* inmsg = nullptr;
         while (next_node != thisNode ) {
-            chordMessager::chordMessageBase* newmsg = new chordMessager::chordMessageRetrieveKeys(thisNode, next_node);
-            makeRequest(newmsg, inmsg);
-            for (std::string key: inmsg->getKeyParam()) {
+            std::vector<std::string> tmp_keys = getRemoteStoredKeys(next_node);
+            for (std::string key : tmp_keys) {
                 keys.push_back(key);
             }
-            delete inmsg;
             next_node = getRemoteSuccessor(next_node);
         }
         return keys;
@@ -430,6 +532,19 @@ namespace CHORD {
     
     node_t chordNode::getKeyHostNode(std::string key) {
         return findSuccessor(getHashcode(key));
+    }
+    
+    void chordNode::removeLocalDataFromDisk(std::string key) {
+        std::string cmd = "rm " + datapath + key;
+        system(cmd.c_str());
+    }
+    
+    void chordNode::removeRemoteDataFromDisk(std::string key, node_t dest_node) {
+        chordMessager::chordMessageBase* outmsg = new chordMessager::chordMessageRemoveDataFromDisk(thisNode, dest_node, key);
+        chordMessager::chordMessageBase* inmsg = nullptr;
+        makeRequest(outmsg, inmsg);
+        delete outmsg;
+        delete inmsg;
     }
     
     void chordNode::executeChordMessage(chordMessager::chordMessageBase* inmsg, chordMessager::chordMessageBase*& outmsg, int newmessager) {
@@ -464,6 +579,12 @@ namespace CHORD {
             outmsg = new chordMessager::chordMessageAck(node_t(), node_t());
         }else if (msg_type == chordMessager::chordMessageType::messageDataInfo) {
             receiveData(newmessager, inmsg);
+            outmsg = new chordMessager::chordMessageAck(node_t(), node_t());
+        }else if (msg_type == chordMessager::chordMessageType::messageDataRequest) {
+            sendRequestData(newmessager, inmsg->getKeyParam()[0]);
+            outmsg = new chordMessager::chordMessageAck(node_t(), node_t());
+        }else if (msg_type == chordMessager::chordMessageType::messageRemoveDataFromDisk) {
+            removeLocalDataFromDisk(inmsg->getKeyParam()[0]);
             outmsg = new chordMessager::chordMessageAck(node_t(), node_t());
         }else if (msg_type == chordMessager::chordMessageType::messageStoreKey) {
             addKeyLocal(inmsg->getKeyParam()[0]);

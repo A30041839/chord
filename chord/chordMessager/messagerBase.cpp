@@ -103,8 +103,10 @@ namespace chordMessager {
         DEBUG_PRINT("Reading message");
         bzero(buffer, MESSAGER_BUFFER_SIZE);
         ssize_t n = read(sockfd, buffer, MESSAGER_BUFFER_SIZE);
-        if (n < 0) {
-            throw ERRORS::chordMessagerSocketReadFail();
+        while (n < 0) {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            bzero(buffer, MESSAGER_BUFFER_SIZE);
+            n = read(sockfd, buffer, MESSAGER_BUFFER_SIZE);
         }
         std::string msg(buffer);
         return msg;
@@ -115,8 +117,11 @@ namespace chordMessager {
         bzero(buffer, MESSAGER_BUFFER_SIZE);
         bcopy((char*)msg.c_str(), (char*)buffer, msg.size());
         ssize_t n = write(sockfd, buffer, msg.size());
-        if (n < 0) {
-            throw ERRORS::chordMessagerSocketWriteFail();
+        while (n < 0) {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            bzero(buffer, MESSAGER_BUFFER_SIZE);
+            bcopy((char*)msg.c_str(), (char*)buffer, msg.size());
+            n = write(sockfd, buffer, msg.size());
         }
     }
     

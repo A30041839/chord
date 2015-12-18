@@ -74,7 +74,7 @@ inline identifier_t getHashcode(std::string valuetoHash) {
         hash <<= 4;
         hash += hex_to_dec[hex[i]];
     }
-    return hash + HASH_CODE_OFFSET;
+    return hash;
 }
 
 #endif /* utils_hpp */

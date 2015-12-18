@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    CHORD::chordService* service = CHORD::chordService::createService(SERVICE_HOSTNAME, SERVICE_PORT);
+    CHORD::chordService* service = CHORD::chordService::createService(SERVICE_HOSTNAME, SERVICE_PORT, MACHINE_NAME);
     
     string cmd;
     service->setWorkingDir(CHORD_DISK_PATH);
@@ -34,11 +34,21 @@ int main(int argc, const char * argv[]) {
                 cout << file << endl;
             }
         }else if (cmd == "save") {
-            std::string fname;
-            cin >> fname;
-            service->storeFile(CHORD_INPUT_PATH + fname);
+            int cnt = 0;
+            for (int k = 0; k < 10; ++k) {
+                for (int i = 1; i <= 300; ++i) {
+                    service->storeFile(CHORD_INPUT_PATH + to_string(i) + ".cpp");
+                    cnt++;
+                    cout << "saved " << cnt << " files" << endl;
+                }
+            }
+            cout << "save complete" << endl;
         }else if (cmd == "leave") {
             service->closeService();
+        }else if (cmd == "get") {
+            std::string fname;
+            cin >> fname;
+            service->getFile(fname);
         }
     }
     return 0;

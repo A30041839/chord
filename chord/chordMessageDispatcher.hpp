@@ -16,6 +16,7 @@
 #include <cmath>
 #include <queue>
 #include <chrono>
+#include <mutex>
 #include "chordMessager/chordMessage.hpp"
 #include "chordMessager/chordMessager.hpp"
 #include "chordNode.hpp"
@@ -30,6 +31,7 @@ namespace CHORD {
         chordMessageDispatcher(chordNode*);
         ~chordMessageDispatcher();
         static std::queue<std::thread*> threadQueue;
+        static std::mutex threadQueueLock;
         static std::thread* threadCleaner;
         static chordNode* thisNode;
         static std::thread* dispatchThread;

@@ -15,6 +15,8 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <string>
+#include <thread>
+#include <chrono>
 #include "../errors.h"
 #include "debug.h"
 #include "types.h"

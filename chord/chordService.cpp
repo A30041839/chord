@@ -21,11 +21,11 @@ namespace CHORD {
         DEBUG_PRINT("Creating Chord service.");
     }
     
-    chordService* chordService::createService(std::string hostname, int portno) {
+    chordService* chordService::createService(std::string hostname, int portno, std::string machine_name) {
         if (serviceInstance == nullptr) {
             //initiate service here
             serviceInstance = new chordService();
-            serviceChordNode = new chordNode(hostname, portno);
+            serviceChordNode = new chordNode(hostname, portno, machine_name);
             //bind chordNode to dispatcher
             serviceDispatcher = new chordMessageDispatcher(serviceChordNode);
             serviceDispatcherThread = new std::thread(startDispatcher);
@@ -169,21 +169,25 @@ namespace CHORD {
     
     //store a file to the chord network
     void chordService::storeFile(std::string fpath) {
-        std::ifstream is(fpath, std::ifstream::binary);
-        if (!is) {
-            throw ERRORS::chordFileOpenFail();
+        try {
+            std::ifstream is(fpath, std::ifstream::binary);
+            if (!is) {
+                throw ERRORS::chordFileOpenFail();
+            }
+            std::string basename = getBaseName(fpath);
+            is.seekg(0, is.end);
+            int size = is.tellg();
+            is.seekg(0, is.beg);
+            serviceChordNode->storeKeyValue(basename, is, size);
+            is.close();
+        } catch (ERRORS::chordFileOpenFail) {
+            //printf("file not exist!\n");
         }
-        std::string basename = getBaseName(fpath);
-        is.seekg(0, is.end);
-        int size = is.tellg();
-        is.seekg(0, is.beg);
-        serviceChordNode->storeKeyValue(basename, is, size);
-        is.close();
     }
     
     //delete a file from the chord network
-    void chordService::deleteFile(std::string fname) {
-        
+    void chordService::deleteFile(std::string basename) {
+        serviceChordNode->removeKey(basename);
     }
     
     //check the existence of a file
@@ -192,8 +196,11 @@ namespace CHORD {
     }
     
     //get a file from the chord network
-    void chordService::getFile(std::string fname) {
-        
+    void chordService::getFile(std::string basename) {
+        if (!existFile(basename)) {
+            return;
+        }
+        serviceChordNode->fetchKeyValue(basename);
     }
     
     //list all the files in the chord network

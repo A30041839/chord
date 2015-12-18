@@ -31,6 +31,10 @@ namespace chordMessager {
         return src_node.portno;
     }
     
+    std::string chordMessageBase::getSrcMachineName() {
+        return src_node.machine_name;
+    }
+    
     int chordMessageBase::getType() {
         return messageType;
     }
@@ -49,6 +53,10 @@ namespace chordMessager {
     
     identifier_t chordMessageBase::getDestIdentifier() {
         return dest_node.identifier;
+    }
+    
+    std::string chordMessageBase::getDestMachineName() {
+        return dest_node.machine_name;
     }
     
     std::vector<identifier_t> chordMessageBase::getIntParam() {
@@ -108,6 +116,36 @@ namespace chordMessager {
         DEBUG_PRINT("chordMessageDataInfo being serialized.");
         char buf[200];
         sprintf(buf, "type:%d|key:%s|int_param:%lld|", messageType, key_params[0].c_str(), int_params[0]);
+        return std::string(buf);
+    }
+    
+    //chordMessageDataRequest//
+    chordMessageDataRequest::chordMessageDataRequest(node_t _src_node, node_t _dest_node, std::string key) {
+        DEBUG_PRINT("Creating chordMessageDataRequest");
+        src_node = _src_node;
+        dest_node = _dest_node;
+        key_params.push_back(key);
+        messageType = chordMessageType::messageDataRequest;
+    }
+    
+    std::string chordMessageDataRequest::serialize() {
+        DEBUG_PRINT("chordMessageDataRequest being serialized.");
+        char buf[200];
+        sprintf(buf, "type:%d|key:%s|", messageType, key_params[0].c_str());
+        return std::string(buf);
+    }
+    
+    //chordMessageRemoveDataFromDisk//
+    chordMessageRemoveDataFromDisk::chordMessageRemoveDataFromDisk(node_t _src_node, node_t _dest_node, std::string key) {
+        src_node = _src_node;
+        dest_node = _dest_node;
+        key_params.push_back(key);
+        messageType = chordMessageType::messageRemoveDataFromDisk;
+    }
+    
+    std::string chordMessageRemoveDataFromDisk::serialize() {
+        char buf[200];
+        sprintf(buf, "type:%d|key:%s|", messageType, key_params[0].c_str());
         return std::string(buf);
     }
     
@@ -202,7 +240,7 @@ namespace chordMessager {
     std::string chordMessageKeylist::serialize() {
         DEBUG_PRINT("chordMessageKeylist being serialized.");
         //AWARE BUF OVERFLOW
-        char buf[1000];
+        char buf[5000];
         std::string key_str;
         for (int i = 0; i < key_params.size(); ++i) {
             key_str.append(key_params[i] + ",");
@@ -355,10 +393,10 @@ namespace chordMessager {
     
     std::string chordMessageRemoveNode::serialize() {
         DEBUG_PRINT("chordMessageRemoveNode being serialized.");
-        char buf[200];
-        sprintf(buf, "type:%d|hostname1:%s|identifier1:%lld|portno1:%d|hostname2:%s|identifier2:%lld|portno2:%d|int_param:%lld|", messageType, node_params[0].hostname.c_str(),
-                node_params[0].identifier, node_params[0].portno, node_params[1].hostname.c_str(),
-                node_params[1].identifier, node_params[1].portno, int_params[0]);
+        char buf[500];
+        sprintf(buf, "type:%d|hostname1:%s|identifier1:%lld|portno1:%d|machine_name1:%s|hostname2:%s|identifier2:%lld|portno2:%d|machine_name2:%s|int_param:%lld|", messageType, node_params[0].hostname.c_str(),
+                node_params[0].identifier, node_params[0].portno, node_params[0].machine_name.c_str(), node_params[1].hostname.c_str(),
+                node_params[1].identifier, node_params[1].portno, node_params[1].machine_name.c_str(), int_params[0]);
         return std::string(buf);
     }
 }

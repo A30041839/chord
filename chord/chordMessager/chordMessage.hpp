@@ -36,6 +36,8 @@ namespace chordMessager {
         messageRetrieveKeys,
         messageKeylist,
         messageDataInfo,
+        messageDataRequest,
+        messageRemoveDataFromDisk,
         messageAck,
     };
     
@@ -66,11 +68,13 @@ namespace chordMessager {
         virtual std::string getSrcHostname();
         virtual identifier_t getSrcIdentifier();
         virtual int getSrcPortno();
+        virtual std::string getSrcMachineName();
         
         virtual node_t getDestNode();
         virtual std::string getDestHostname();
         virtual int getDestPortno();
         virtual identifier_t getDestIdentifier();
+        virtual std::string getDestMachineName();
         
         virtual std::vector<identifier_t> getIntParam();
         virtual std::vector<node_t> getNodeParam();
@@ -92,6 +96,18 @@ namespace chordMessager {
     class chordMessageDataInfo : public chordMessageBase {
     public:
         chordMessageDataInfo(node_t _src_node, node_t _dest_node, std::string key, identifier_t size);
+        std::string serialize();
+    };
+    
+    class chordMessageDataRequest : public chordMessageBase {
+    public:
+        chordMessageDataRequest(node_t _src_node, node_t _dest_node, std::string key);
+        std::string serialize();
+    };
+    
+    class chordMessageRemoveDataFromDisk : public chordMessageBase {
+    public:
+        chordMessageRemoveDataFromDisk(node_t _src_node, node_t _dest_node, std::string key);
         std::string serialize();
     };
     

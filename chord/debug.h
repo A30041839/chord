@@ -11,6 +11,7 @@
 
 #include <ctime>
 #include <string>
+#include <iostream>
 
 inline std::string getCurrentTime() {
     time_t     now = time(0);
@@ -22,7 +23,7 @@ inline std::string getCurrentTime() {
 }
 
 inline void DEBUG_PRINT(const char* info) {
-    printf("[%s]:%s\n", getCurrentTime().c_str(), info);
+    //std::cout << "[" << getCurrentTime() << "]:" <<  info << std::endl;
 }
 
 #endif /* debug_h */

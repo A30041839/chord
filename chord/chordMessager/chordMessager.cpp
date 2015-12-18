@@ -32,8 +32,9 @@ namespace chordMessager {
         bzero((char*)data_buffer, data_size);
         is.read(data_buffer, data_size);
         ssize_t n = write(sockfd, data_buffer, data_size);
-        if (n < 0) {
-            throw ERRORS::chordMessagerSocketWriteFail();
+        while (n < 0) {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            n = write(sockfd, data_buffer, data_size);
         }
         //release data buffer
         delete [] data_buffer;
@@ -42,10 +43,11 @@ namespace chordMessager {
     void chordMessager::receiveData(std::ofstream& os, int data_size) {
         DEBUG_PRINT("Receiving data");
         char* data_buffer = new char[data_size];
-        bzero(data_buffer, data_size);
         ssize_t n = read(sockfd, data_buffer, data_size);
-        if (n < 0) {
-            throw ERRORS::chordMessagerSocketReadFail();
+        while (n < 0) {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            bzero(data_buffer, data_size);
+            n = read(sockfd, data_buffer, data_size);
         }
         //write data to ofstream
         os.write((const char*)data_buffer, data_size);
@@ -54,6 +56,10 @@ namespace chordMessager {
     
     void chordMessager::deserializeMessage(std::string msg, chordMessageBase*& inmsg) {
         DEBUG_PRINT("Deserializing message");
+        if (msg.substr(0, 5) != "type:") {
+            inmsg = nullptr;
+            return;
+        }
        std::unordered_map<std::string, std::string> mp;
         std::istringstream iss(msg);
         std::string str;
@@ -67,35 +73,39 @@ namespace chordMessager {
         }
         int type = atoi(mp["type"].c_str());
         if (type == chordMessageType::messageNodeInfo) {
-            inmsg = new chordMessageNodeInfo(node_t(), node_t(), node_t(mp["hostname"], atoi(mp["identifier"].c_str()), atoi(mp["portno"].c_str())));
+            inmsg = new chordMessageNodeInfo(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
         }else if (type == chordMessageType::messageGetSuccessor) {
             inmsg = new chordMessageGetSuccessor(node_t(), node_t());
         }else if (type == chordMessageType::messageGetPredecessor) {
             inmsg = new chordMessageGetPredecessor(node_t(), node_t());
         }else if (type == chordMessageType::messageSetPredecessor) {
-            inmsg = new chordMessageSetPredecessor(node_t(), node_t(), node_t(mp["hostname"], atoi(mp["identifier"].c_str()), atoi(mp["portno"].c_str())));
+            inmsg = new chordMessageSetPredecessor(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
         }else if (type == chordMessageType::messageClosestPrecedingFinger) {
-            inmsg = new chordMessageClosestPrecedingFinger(node_t(), node_t(), atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageClosestPrecedingFinger(node_t(), node_t(), atoll(mp["int_param"].c_str()));
         }else if (type == chordMessageType::messageFindSuccessor) {
-            inmsg = new chordMessageFindSuccessor(node_t(), node_t(), atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageFindSuccessor(node_t(), node_t(), atoll(mp["int_param"].c_str()));
         }else if (type == chordMessageType::messageUpdateFingerTable) {
-            inmsg = new chordMessageUpdateFingerTable(node_t(), node_t(), node_t(mp["hostname"], atoi(mp["identifier"].c_str()),
-                        atoi(mp["portno"].c_str())), atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageUpdateFingerTable(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()),
+                        atoi(mp["portno"].c_str()), mp["machine_name"]), atoll(mp["int_param"].c_str()));
         }else if (type == chordMessageType::messageRemoveNode) {
-            inmsg = new chordMessageRemoveNode(node_t(), node_t(), node_t(mp["hostname1"], atoi(mp["identifier1"].c_str()), atoi(mp["portno1"].c_str())),
-                                               node_t(mp["hostname2"], atoi(mp["identifier2"].c_str()), atoi(mp["portno2"].c_str())), atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageRemoveNode(node_t(), node_t(), node_t(mp["hostname1"], atoll(mp["identifier1"].c_str()), atoi(mp["portno1"].c_str()), mp["machine_name1"]),
+                                               node_t(mp["hostname2"], atoll(mp["identifier2"].c_str()), atoi(mp["portno2"].c_str()), mp["machine_name2"]), atoll(mp["int_param"].c_str()));
         }else if (type == chordMessageType::messageAck) {
             inmsg = new chordMessageAck(node_t(), node_t());
         }else if (type == chordMessageType::messageDetectNode) {
-            inmsg = new chordMessageDetectNode(node_t(), node_t(), node_t(mp["hostname"], atoi(mp["identifier"].c_str()), atoi(mp["portno"].c_str())));
+            inmsg = new chordMessageDetectNode(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
         }else if (type == chordMessageType::messageDetectNodeResponse) {
-            inmsg = new chordMessageDetectNodeResponse(node_t(), node_t(), node_t(mp["hostname"], atoi(mp["identifier"].c_str()), atoi(mp["portno"].c_str())));
+            inmsg = new chordMessageDetectNodeResponse(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
         }else if (type == chordMessageType::messageStoreKey) {
             inmsg = new chordMessageStoreKey(node_t(), node_t(), mp["key"]);
         }else if (type == chordMessageType::messageDataInfo) {
-            inmsg = new chordMessageDataInfo(node_t(), node_t(), mp["key"], atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageDataInfo(node_t(), node_t(), mp["key"], atoll(mp["int_param"].c_str()));
+        }else if (type == chordMessageType::messageDataRequest) {
+            inmsg = new chordMessageDataRequest(node_t(), node_t(), mp["key"]);
+        }else if (type == chordMessageType::messageRemoveDataFromDisk) {
+            inmsg = new chordMessageRemoveDataFromDisk(node_t(), node_t(), mp["key"]);
         }else if (type == chordMessageType::messageExistence) {
-            inmsg = new chordMessageExistence(node_t(), node_t(), atoi(mp["int_param"].c_str()));
+            inmsg = new chordMessageExistence(node_t(), node_t(), atoll(mp["int_param"].c_str()));
         }else if (type == chordMessageType::messageStoreKey) {
             inmsg = new chordMessageStoreKey(node_t(), node_t(), mp["key"]);
         }else if (type == chordMessageType::messageEraseKey) {

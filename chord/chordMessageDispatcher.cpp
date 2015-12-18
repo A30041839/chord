@@ -12,6 +12,7 @@ namespace CHORD {
     chordNode* chordMessageDispatcher::thisNode = nullptr;
     std::thread* chordMessageDispatcher::dispatchThread = nullptr;
     std::queue<std::thread*> chordMessageDispatcher::threadQueue;
+    std::mutex chordMessageDispatcher::threadQueueLock;
     std::thread* chordMessageDispatcher::threadCleaner = nullptr;
     
     chordMessageDispatcher::chordMessageDispatcher(CHORD::chordNode* _thisNode) {
@@ -30,6 +31,7 @@ namespace CHORD {
     
     void chordMessageDispatcher::cleanThread() {
         while (1) {
+            threadQueueLock.lock();
             while (!threadQueue.empty()) {
                 std::thread* th = threadQueue.front();
                 threadQueue.pop();
@@ -38,6 +40,7 @@ namespace CHORD {
                 }
                 delete th;
             }
+            threadQueueLock.unlock();
             std::this_thread::sleep_for(std::chrono::seconds(5));
         }
     }
@@ -48,7 +51,9 @@ namespace CHORD {
         while (true) {
             int newsockfd = listener.startListenLoop();
             dispatchThread = new std::thread(dispatchRequest, newsockfd);
+            threadQueueLock.lock();
             threadQueue.push(dispatchThread);
+            threadQueueLock.unlock();
         }
     }
     
@@ -65,6 +70,8 @@ namespace CHORD {
         thisNode->executeChordMessage(inmsg, outmsg, newmessager);
         std::string serialized_msg = outmsg->serialize();
         thisNode->messagerPool[newmessager].sendMessage(serialized_msg);
+        delete inmsg;
+        delete outmsg;
         //free messager
         thisNode->freeMessager(newmessager);
     }
