@@ -34,14 +34,9 @@ int main(int argc, const char * argv[]) {
                 cout << file << endl;
             }
         }else if (cmd == "save") {
-            int cnt = 0;
-            for (int k = 0; k < 10; ++k) {
-                for (int i = 1; i <= 300; ++i) {
-                    service->storeFile(CHORD_INPUT_PATH + to_string(i) + ".cpp");
-                    cnt++;
-                    cout << "saved " << cnt << " files" << endl;
-                }
-            }
+            string fname;
+            cin >> fname;
+            service->storeFile(CHORD_INPUT_PATH + fname);
             cout << "save complete" << endl;
         }else if (cmd == "leave") {
             service->closeService();

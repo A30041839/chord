@@ -23,7 +23,7 @@ inline std::string getCurrentTime() {
 }
 
 inline void DEBUG_PRINT(const char* info) {
-    //std::cout << "[" << getCurrentTime() << "]:" <<  info << std::endl;
+    std::cout << "[" << getCurrentTime() << "]:" <<  info << std::endl;
 }
 
 #endif /* debug_h */
