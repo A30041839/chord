@@ -29,48 +29,47 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace routeguide {
+namespace chord {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_chord_2eproto();
 void protobuf_AssignDesc_chord_2eproto();
 void protobuf_ShutdownFile_chord_2eproto();
 
-class node_t;
-class node_t_dual;
-class node_t_dual_node_t_int;
-class node_t_int;
-class node_t_node_t_int;
-class void;
+class m_int;
+class m_node_t;
+class m_node_t_int;
+class m_node_t_node_t_int;
+class m_void;
 
 // ===================================================================
 
-class void : public ::google::protobuf::Message {
+class m_void : public ::google::protobuf::Message {
  public:
-  void();
-  virtual ~void();
+  m_void();
+  virtual ~m_void();
 
-  void(const void& from);
+  m_void(const m_void& from);
 
-  inline void& operator=(const void& from) {
+  inline m_void& operator=(const m_void& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const void& default_instance();
+  static const m_void& default_instance();
 
-  void Swap(void* other);
+  void Swap(m_void* other);
 
   // implements Message ----------------------------------------------
 
-  inline void* New() const { return New(NULL); }
+  inline m_void* New() const { return New(NULL); }
 
-  void* New(::google::protobuf::Arena* arena) const;
+  m_void* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const void& from);
-  void MergeFrom(const void& from);
+  void CopyFrom(const m_void& from);
+  void MergeFrom(const m_void& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -85,7 +84,7 @@ class void : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(void* other);
+  void InternalSwap(m_void* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -101,7 +100,7 @@ class void : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:routeguide.void)
+  // @@protoc_insertion_point(class_scope:chord.m_void)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -112,36 +111,36 @@ class void : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_chord_2eproto();
 
   void InitAsDefaultInstance();
-  static void* default_instance_;
+  static m_void* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class node_t : public ::google::protobuf::Message {
+class m_int : public ::google::protobuf::Message {
  public:
-  node_t();
-  virtual ~node_t();
+  m_int();
+  virtual ~m_int();
 
-  node_t(const node_t& from);
+  m_int(const m_int& from);
 
-  inline node_t& operator=(const node_t& from) {
+  inline m_int& operator=(const m_int& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const node_t& default_instance();
+  static const m_int& default_instance();
 
-  void Swap(node_t* other);
+  void Swap(m_int* other);
 
   // implements Message ----------------------------------------------
 
-  inline node_t* New() const { return New(NULL); }
+  inline m_int* New() const { return New(NULL); }
 
-  node_t* New(::google::protobuf::Arena* arena) const;
+  m_int* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const node_t& from);
-  void MergeFrom(const node_t& from);
+  void CopyFrom(const m_int& from);
+  void MergeFrom(const m_int& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -156,7 +155,85 @@ class node_t : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(node_t* other);
+  void InternalSwap(m_int* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int64 id() const;
+  void set_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:chord.m_int)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::int64 id_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_chord_2eproto();
+  friend void protobuf_AssignDesc_chord_2eproto();
+  friend void protobuf_ShutdownFile_chord_2eproto();
+
+  void InitAsDefaultInstance();
+  static m_int* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class m_node_t : public ::google::protobuf::Message {
+ public:
+  m_node_t();
+  virtual ~m_node_t();
+
+  m_node_t(const m_node_t& from);
+
+  inline m_node_t& operator=(const m_node_t& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const m_node_t& default_instance();
+
+  void Swap(m_node_t* other);
+
+  // implements Message ----------------------------------------------
+
+  inline m_node_t* New() const { return New(NULL); }
+
+  m_node_t* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const m_node_t& from);
+  void MergeFrom(const m_node_t& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(m_node_t* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -206,7 +283,7 @@ class node_t : public ::google::protobuf::Message {
   ::std::string* release_machine_name();
   void set_allocated_machine_name(::std::string* machine_name);
 
-  // @@protoc_insertion_point(class_scope:routeguide.node_t)
+  // @@protoc_insertion_point(class_scope:chord.m_node_t)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -221,36 +298,36 @@ class node_t : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_chord_2eproto();
 
   void InitAsDefaultInstance();
-  static node_t* default_instance_;
+  static m_node_t* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class node_t_dual : public ::google::protobuf::Message {
+class m_node_t_int : public ::google::protobuf::Message {
  public:
-  node_t_dual();
-  virtual ~node_t_dual();
+  m_node_t_int();
+  virtual ~m_node_t_int();
 
-  node_t_dual(const node_t_dual& from);
+  m_node_t_int(const m_node_t_int& from);
 
-  inline node_t_dual& operator=(const node_t_dual& from) {
+  inline m_node_t_int& operator=(const m_node_t_int& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const node_t_dual& default_instance();
+  static const m_node_t_int& default_instance();
 
-  void Swap(node_t_dual* other);
+  void Swap(m_node_t_int* other);
 
   // implements Message ----------------------------------------------
 
-  inline node_t_dual* New() const { return New(NULL); }
+  inline m_node_t_int* New() const { return New(NULL); }
 
-  node_t_dual* New(::google::protobuf::Arena* arena) const;
+  m_node_t_int* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const node_t_dual& from);
-  void MergeFrom(const node_t_dual& from);
+  void CopyFrom(const m_node_t_int& from);
+  void MergeFrom(const m_node_t_int& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -265,7 +342,7 @@ class node_t_dual : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(node_t_dual* other);
+  void InternalSwap(m_node_t_int* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -281,105 +358,14 @@ class node_t_dual : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .routeguide.node_t first = 1;
-  bool has_first() const;
-  void clear_first();
-  static const int kFirstFieldNumber = 1;
-  const ::routeguide::node_t& first() const;
-  ::routeguide::node_t* mutable_first();
-  ::routeguide::node_t* release_first();
-  void set_allocated_first(::routeguide::node_t* first);
-
-  // optional .routeguide.node_t second = 2;
-  bool has_second() const;
-  void clear_second();
-  static const int kSecondFieldNumber = 2;
-  const ::routeguide::node_t& second() const;
-  ::routeguide::node_t* mutable_second();
-  ::routeguide::node_t* release_second();
-  void set_allocated_second(::routeguide::node_t* second);
-
-  // @@protoc_insertion_point(class_scope:routeguide.node_t_dual)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::routeguide::node_t* first_;
-  ::routeguide::node_t* second_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_chord_2eproto();
-  friend void protobuf_AssignDesc_chord_2eproto();
-  friend void protobuf_ShutdownFile_chord_2eproto();
-
-  void InitAsDefaultInstance();
-  static node_t_dual* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class node_t_int : public ::google::protobuf::Message {
- public:
-  node_t_int();
-  virtual ~node_t_int();
-
-  node_t_int(const node_t_int& from);
-
-  inline node_t_int& operator=(const node_t_int& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const node_t_int& default_instance();
-
-  void Swap(node_t_int* other);
-
-  // implements Message ----------------------------------------------
-
-  inline node_t_int* New() const { return New(NULL); }
-
-  node_t_int* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const node_t_int& from);
-  void MergeFrom(const node_t_int& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(node_t_int* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional .routeguide.node_t node = 1;
+  // optional .chord.m_node_t node = 1;
   bool has_node() const;
   void clear_node();
   static const int kNodeFieldNumber = 1;
-  const ::routeguide::node_t& node() const;
-  ::routeguide::node_t* mutable_node();
-  ::routeguide::node_t* release_node();
-  void set_allocated_node(::routeguide::node_t* node);
+  const ::chord::m_node_t& node() const;
+  ::chord::m_node_t* mutable_node();
+  ::chord::m_node_t* release_node();
+  void set_allocated_node(::chord::m_node_t* node);
 
   // optional int64 id = 2;
   void clear_id();
@@ -387,12 +373,12 @@ class node_t_int : public ::google::protobuf::Message {
   ::google::protobuf::int64 id() const;
   void set_id(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:routeguide.node_t_int)
+  // @@protoc_insertion_point(class_scope:chord.m_node_t_int)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::routeguide::node_t* node_;
+  ::chord::m_node_t* node_;
   ::google::protobuf::int64 id_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_chord_2eproto();
@@ -400,36 +386,36 @@ class node_t_int : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_chord_2eproto();
 
   void InitAsDefaultInstance();
-  static node_t_int* default_instance_;
+  static m_node_t_int* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class node_t_node_t_int : public ::google::protobuf::Message {
+class m_node_t_node_t_int : public ::google::protobuf::Message {
  public:
-  node_t_node_t_int();
-  virtual ~node_t_node_t_int();
+  m_node_t_node_t_int();
+  virtual ~m_node_t_node_t_int();
 
-  node_t_node_t_int(const node_t_node_t_int& from);
+  m_node_t_node_t_int(const m_node_t_node_t_int& from);
 
-  inline node_t_node_t_int& operator=(const node_t_node_t_int& from) {
+  inline m_node_t_node_t_int& operator=(const m_node_t_node_t_int& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const node_t_node_t_int& default_instance();
+  static const m_node_t_node_t_int& default_instance();
 
-  void Swap(node_t_node_t_int* other);
+  void Swap(m_node_t_node_t_int* other);
 
   // implements Message ----------------------------------------------
 
-  inline node_t_node_t_int* New() const { return New(NULL); }
+  inline m_node_t_node_t_int* New() const { return New(NULL); }
 
-  node_t_node_t_int* New(::google::protobuf::Arena* arena) const;
+  m_node_t_node_t_int* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const node_t_node_t_int& from);
-  void MergeFrom(const node_t_node_t_int& from);
+  void CopyFrom(const m_node_t_node_t_int& from);
+  void MergeFrom(const m_node_t_node_t_int& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -444,7 +430,7 @@ class node_t_node_t_int : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(node_t_node_t_int* other);
+  void InternalSwap(m_node_t_node_t_int* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -460,138 +446,37 @@ class node_t_node_t_int : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .routeguide.node_t node = 1;
-  bool has_node() const;
-  void clear_node();
-  static const int kNodeFieldNumber = 1;
-  const ::routeguide::node_t& node() const;
-  ::routeguide::node_t* mutable_node();
-  ::routeguide::node_t* release_node();
-  void set_allocated_node(::routeguide::node_t* node);
+  // optional .chord.m_node_t node_1 = 1;
+  bool has_node_1() const;
+  void clear_node_1();
+  static const int kNode1FieldNumber = 1;
+  const ::chord::m_node_t& node_1() const;
+  ::chord::m_node_t* mutable_node_1();
+  ::chord::m_node_t* release_node_1();
+  void set_allocated_node_1(::chord::m_node_t* node_1);
 
-  // optional .routeguide.node_t_int entry = 2;
-  bool has_entry() const;
-  void clear_entry();
-  static const int kEntryFieldNumber = 2;
-  const ::routeguide::node_t_int& entry() const;
-  ::routeguide::node_t_int* mutable_entry();
-  ::routeguide::node_t_int* release_entry();
-  void set_allocated_entry(::routeguide::node_t_int* entry);
+  // optional .chord.m_node_t node_2 = 2;
+  bool has_node_2() const;
+  void clear_node_2();
+  static const int kNode2FieldNumber = 2;
+  const ::chord::m_node_t& node_2() const;
+  ::chord::m_node_t* mutable_node_2();
+  ::chord::m_node_t* release_node_2();
+  void set_allocated_node_2(::chord::m_node_t* node_2);
 
-  // @@protoc_insertion_point(class_scope:routeguide.node_t_node_t_int)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::routeguide::node_t* node_;
-  ::routeguide::node_t_int* entry_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_chord_2eproto();
-  friend void protobuf_AssignDesc_chord_2eproto();
-  friend void protobuf_ShutdownFile_chord_2eproto();
-
-  void InitAsDefaultInstance();
-  static node_t_node_t_int* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class node_t_dual_node_t_int : public ::google::protobuf::Message {
- public:
-  node_t_dual_node_t_int();
-  virtual ~node_t_dual_node_t_int();
-
-  node_t_dual_node_t_int(const node_t_dual_node_t_int& from);
-
-  inline node_t_dual_node_t_int& operator=(const node_t_dual_node_t_int& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const node_t_dual_node_t_int& default_instance();
-
-  void Swap(node_t_dual_node_t_int* other);
-
-  // implements Message ----------------------------------------------
-
-  inline node_t_dual_node_t_int* New() const { return New(NULL); }
-
-  node_t_dual_node_t_int* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const node_t_dual_node_t_int& from);
-  void MergeFrom(const node_t_dual_node_t_int& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(node_t_dual_node_t_int* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional .routeguide.node_t dest_node = 1;
-  bool has_dest_node() const;
-  void clear_dest_node();
-  static const int kDestNodeFieldNumber = 1;
-  const ::routeguide::node_t& dest_node() const;
-  ::routeguide::node_t* mutable_dest_node();
-  ::routeguide::node_t* release_dest_node();
-  void set_allocated_dest_node(::routeguide::node_t* dest_node);
-
-  // optional .routeguide.node_t node_param1 = 2;
-  bool has_node_param1() const;
-  void clear_node_param1();
-  static const int kNodeParam1FieldNumber = 2;
-  const ::routeguide::node_t& node_param1() const;
-  ::routeguide::node_t* mutable_node_param1();
-  ::routeguide::node_t* release_node_param1();
-  void set_allocated_node_param1(::routeguide::node_t* node_param1);
-
-  // optional .routeguide.node_t node_param2 = 3;
-  bool has_node_param2() const;
-  void clear_node_param2();
-  static const int kNodeParam2FieldNumber = 3;
-  const ::routeguide::node_t& node_param2() const;
-  ::routeguide::node_t* mutable_node_param2();
-  ::routeguide::node_t* release_node_param2();
-  void set_allocated_node_param2(::routeguide::node_t* node_param2);
-
-  // optional int64 id = 4;
+  // optional int64 id = 3;
   void clear_id();
-  static const int kIdFieldNumber = 4;
+  static const int kIdFieldNumber = 3;
   ::google::protobuf::int64 id() const;
   void set_id(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:routeguide.node_t_dual_node_t_int)
+  // @@protoc_insertion_point(class_scope:chord.m_node_t_node_t_int)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::routeguide::node_t* dest_node_;
-  ::routeguide::node_t* node_param1_;
-  ::routeguide::node_t* node_param2_;
+  ::chord::m_node_t* node_1_;
+  ::chord::m_node_t* node_2_;
   ::google::protobuf::int64 id_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_chord_2eproto();
@@ -599,7 +484,7 @@ class node_t_dual_node_t_int : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_chord_2eproto();
 
   void InitAsDefaultInstance();
-  static node_t_dual_node_t_int* default_instance_;
+  static m_node_t_node_t_int* default_instance_;
 };
 // ===================================================================
 
@@ -607,235 +492,175 @@ class node_t_dual_node_t_int : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// void
+// m_void
 
 // -------------------------------------------------------------------
 
-// node_t
+// m_int
+
+// optional int64 id = 1;
+inline void m_int::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 m_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_int.id)
+  return id_;
+}
+inline void m_int::set_id(::google::protobuf::int64 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:chord.m_int.id)
+}
+
+// -------------------------------------------------------------------
+
+// m_node_t
 
 // optional string hostname = 1;
-inline void node_t::clear_hostname() {
+inline void m_node_t::clear_hostname() {
   hostname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& node_t::hostname() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.hostname)
+inline const ::std::string& m_node_t::hostname() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.hostname)
   return hostname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void node_t::set_hostname(const ::std::string& value) {
+inline void m_node_t::set_hostname(const ::std::string& value) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.hostname)
 }
-inline void node_t::set_hostname(const char* value) {
+inline void m_node_t::set_hostname(const char* value) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_char:chord.m_node_t.hostname)
 }
-inline void node_t::set_hostname(const char* value, size_t size) {
+inline void m_node_t::set_hostname(const char* value, size_t size) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_pointer:chord.m_node_t.hostname)
 }
-inline ::std::string* node_t::mutable_hostname() {
+inline ::std::string* m_node_t::mutable_hostname() {
   
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t.hostname)
   return hostname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* node_t::release_hostname() {
+inline ::std::string* m_node_t::release_hostname() {
   
   return hostname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void node_t::set_allocated_hostname(::std::string* hostname) {
+inline void m_node_t::set_allocated_hostname(::std::string* hostname) {
   if (hostname != NULL) {
     
   } else {
     
   }
   hostname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostname);
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t.hostname)
 }
 
 // optional int64 id = 2;
-inline void node_t::clear_id() {
+inline void m_node_t::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 node_t::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.id)
+inline ::google::protobuf::int64 m_node_t::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.id)
   return id_;
 }
-inline void node_t::set_id(::google::protobuf::int64 value) {
+inline void m_node_t::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.id)
 }
 
 // optional int32 portno = 3;
-inline void node_t::clear_portno() {
+inline void m_node_t::clear_portno() {
   portno_ = 0;
 }
-inline ::google::protobuf::int32 node_t::portno() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.portno)
+inline ::google::protobuf::int32 m_node_t::portno() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.portno)
   return portno_;
 }
-inline void node_t::set_portno(::google::protobuf::int32 value) {
+inline void m_node_t::set_portno(::google::protobuf::int32 value) {
   
   portno_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t.portno)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.portno)
 }
 
 // optional string machine_name = 4;
-inline void node_t::clear_machine_name() {
+inline void m_node_t::clear_machine_name() {
   machine_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& node_t::machine_name() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.machine_name)
+inline const ::std::string& m_node_t::machine_name() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.machine_name)
   return machine_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void node_t::set_machine_name(const ::std::string& value) {
+inline void m_node_t::set_machine_name(const ::std::string& value) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.machine_name)
 }
-inline void node_t::set_machine_name(const char* value) {
+inline void m_node_t::set_machine_name(const char* value) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_char:chord.m_node_t.machine_name)
 }
-inline void node_t::set_machine_name(const char* value, size_t size) {
+inline void m_node_t::set_machine_name(const char* value, size_t size) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_pointer:chord.m_node_t.machine_name)
 }
-inline ::std::string* node_t::mutable_machine_name() {
+inline ::std::string* m_node_t::mutable_machine_name() {
   
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t.machine_name)
   return machine_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* node_t::release_machine_name() {
+inline ::std::string* m_node_t::release_machine_name() {
   
   return machine_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void node_t::set_allocated_machine_name(::std::string* machine_name) {
+inline void m_node_t::set_allocated_machine_name(::std::string* machine_name) {
   if (machine_name != NULL) {
     
   } else {
     
   }
   machine_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), machine_name);
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t.machine_name)
 }
 
 // -------------------------------------------------------------------
 
-// node_t_dual
+// m_node_t_int
 
-// optional .routeguide.node_t first = 1;
-inline bool node_t_dual::has_first() const {
-  return !_is_default_instance_ && first_ != NULL;
-}
-inline void node_t_dual::clear_first() {
-  if (GetArenaNoVirtual() == NULL && first_ != NULL) delete first_;
-  first_ = NULL;
-}
-inline const ::routeguide::node_t& node_t_dual::first() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual.first)
-  return first_ != NULL ? *first_ : *default_instance_->first_;
-}
-inline ::routeguide::node_t* node_t_dual::mutable_first() {
-  
-  if (first_ == NULL) {
-    first_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual.first)
-  return first_;
-}
-inline ::routeguide::node_t* node_t_dual::release_first() {
-  
-  ::routeguide::node_t* temp = first_;
-  first_ = NULL;
-  return temp;
-}
-inline void node_t_dual::set_allocated_first(::routeguide::node_t* first) {
-  delete first_;
-  first_ = first;
-  if (first) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual.first)
-}
-
-// optional .routeguide.node_t second = 2;
-inline bool node_t_dual::has_second() const {
-  return !_is_default_instance_ && second_ != NULL;
-}
-inline void node_t_dual::clear_second() {
-  if (GetArenaNoVirtual() == NULL && second_ != NULL) delete second_;
-  second_ = NULL;
-}
-inline const ::routeguide::node_t& node_t_dual::second() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual.second)
-  return second_ != NULL ? *second_ : *default_instance_->second_;
-}
-inline ::routeguide::node_t* node_t_dual::mutable_second() {
-  
-  if (second_ == NULL) {
-    second_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual.second)
-  return second_;
-}
-inline ::routeguide::node_t* node_t_dual::release_second() {
-  
-  ::routeguide::node_t* temp = second_;
-  second_ = NULL;
-  return temp;
-}
-inline void node_t_dual::set_allocated_second(::routeguide::node_t* second) {
-  delete second_;
-  second_ = second;
-  if (second) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual.second)
-}
-
-// -------------------------------------------------------------------
-
-// node_t_int
-
-// optional .routeguide.node_t node = 1;
-inline bool node_t_int::has_node() const {
+// optional .chord.m_node_t node = 1;
+inline bool m_node_t_int::has_node() const {
   return !_is_default_instance_ && node_ != NULL;
 }
-inline void node_t_int::clear_node() {
+inline void m_node_t_int::clear_node() {
   if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
   node_ = NULL;
 }
-inline const ::routeguide::node_t& node_t_int::node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_int.node)
+inline const ::chord::m_node_t& m_node_t_int::node() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_int.node)
   return node_ != NULL ? *node_ : *default_instance_->node_;
 }
-inline ::routeguide::node_t* node_t_int::mutable_node() {
+inline ::chord::m_node_t* m_node_t_int::mutable_node() {
   
   if (node_ == NULL) {
-    node_ = new ::routeguide::node_t;
+    node_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_int.node)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_int.node)
   return node_;
 }
-inline ::routeguide::node_t* node_t_int::release_node() {
+inline ::chord::m_node_t* m_node_t_int::release_node() {
   
-  ::routeguide::node_t* temp = node_;
+  ::chord::m_node_t* temp = node_;
   node_ = NULL;
   return temp;
 }
-inline void node_t_int::set_allocated_node(::routeguide::node_t* node) {
+inline void m_node_t_int::set_allocated_node(::chord::m_node_t* node) {
   delete node_;
   node_ = node;
   if (node) {
@@ -843,228 +668,113 @@ inline void node_t_int::set_allocated_node(::routeguide::node_t* node) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_int.node)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_int.node)
 }
 
 // optional int64 id = 2;
-inline void node_t_int::clear_id() {
+inline void m_node_t_int::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 node_t_int::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_int.id)
+inline ::google::protobuf::int64 m_node_t_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_int.id)
   return id_;
 }
-inline void node_t_int::set_id(::google::protobuf::int64 value) {
+inline void m_node_t_int::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t_int.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t_int.id)
 }
 
 // -------------------------------------------------------------------
 
-// node_t_node_t_int
+// m_node_t_node_t_int
 
-// optional .routeguide.node_t node = 1;
-inline bool node_t_node_t_int::has_node() const {
-  return !_is_default_instance_ && node_ != NULL;
+// optional .chord.m_node_t node_1 = 1;
+inline bool m_node_t_node_t_int::has_node_1() const {
+  return !_is_default_instance_ && node_1_ != NULL;
 }
-inline void node_t_node_t_int::clear_node() {
-  if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
-  node_ = NULL;
+inline void m_node_t_node_t_int::clear_node_1() {
+  if (GetArenaNoVirtual() == NULL && node_1_ != NULL) delete node_1_;
+  node_1_ = NULL;
 }
-inline const ::routeguide::node_t& node_t_node_t_int::node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_node_t_int.node)
-  return node_ != NULL ? *node_ : *default_instance_->node_;
+inline const ::chord::m_node_t& m_node_t_node_t_int::node_1() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.node_1)
+  return node_1_ != NULL ? *node_1_ : *default_instance_->node_1_;
 }
-inline ::routeguide::node_t* node_t_node_t_int::mutable_node() {
+inline ::chord::m_node_t* m_node_t_node_t_int::mutable_node_1() {
   
-  if (node_ == NULL) {
-    node_ = new ::routeguide::node_t;
+  if (node_1_ == NULL) {
+    node_1_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_node_t_int.node)
-  return node_;
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_node_t_int.node_1)
+  return node_1_;
 }
-inline ::routeguide::node_t* node_t_node_t_int::release_node() {
+inline ::chord::m_node_t* m_node_t_node_t_int::release_node_1() {
   
-  ::routeguide::node_t* temp = node_;
-  node_ = NULL;
+  ::chord::m_node_t* temp = node_1_;
+  node_1_ = NULL;
   return temp;
 }
-inline void node_t_node_t_int::set_allocated_node(::routeguide::node_t* node) {
-  delete node_;
-  node_ = node;
-  if (node) {
+inline void m_node_t_node_t_int::set_allocated_node_1(::chord::m_node_t* node_1) {
+  delete node_1_;
+  node_1_ = node_1;
+  if (node_1) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_node_t_int.node)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_node_t_int.node_1)
 }
 
-// optional .routeguide.node_t_int entry = 2;
-inline bool node_t_node_t_int::has_entry() const {
-  return !_is_default_instance_ && entry_ != NULL;
+// optional .chord.m_node_t node_2 = 2;
+inline bool m_node_t_node_t_int::has_node_2() const {
+  return !_is_default_instance_ && node_2_ != NULL;
 }
-inline void node_t_node_t_int::clear_entry() {
-  if (GetArenaNoVirtual() == NULL && entry_ != NULL) delete entry_;
-  entry_ = NULL;
+inline void m_node_t_node_t_int::clear_node_2() {
+  if (GetArenaNoVirtual() == NULL && node_2_ != NULL) delete node_2_;
+  node_2_ = NULL;
 }
-inline const ::routeguide::node_t_int& node_t_node_t_int::entry() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_node_t_int.entry)
-  return entry_ != NULL ? *entry_ : *default_instance_->entry_;
+inline const ::chord::m_node_t& m_node_t_node_t_int::node_2() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.node_2)
+  return node_2_ != NULL ? *node_2_ : *default_instance_->node_2_;
 }
-inline ::routeguide::node_t_int* node_t_node_t_int::mutable_entry() {
+inline ::chord::m_node_t* m_node_t_node_t_int::mutable_node_2() {
   
-  if (entry_ == NULL) {
-    entry_ = new ::routeguide::node_t_int;
+  if (node_2_ == NULL) {
+    node_2_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_node_t_int.entry)
-  return entry_;
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_node_t_int.node_2)
+  return node_2_;
 }
-inline ::routeguide::node_t_int* node_t_node_t_int::release_entry() {
+inline ::chord::m_node_t* m_node_t_node_t_int::release_node_2() {
   
-  ::routeguide::node_t_int* temp = entry_;
-  entry_ = NULL;
+  ::chord::m_node_t* temp = node_2_;
+  node_2_ = NULL;
   return temp;
 }
-inline void node_t_node_t_int::set_allocated_entry(::routeguide::node_t_int* entry) {
-  delete entry_;
-  entry_ = entry;
-  if (entry) {
+inline void m_node_t_node_t_int::set_allocated_node_2(::chord::m_node_t* node_2) {
+  delete node_2_;
+  node_2_ = node_2;
+  if (node_2) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_node_t_int.entry)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_node_t_int.node_2)
 }
 
-// -------------------------------------------------------------------
-
-// node_t_dual_node_t_int
-
-// optional .routeguide.node_t dest_node = 1;
-inline bool node_t_dual_node_t_int::has_dest_node() const {
-  return !_is_default_instance_ && dest_node_ != NULL;
-}
-inline void node_t_dual_node_t_int::clear_dest_node() {
-  if (GetArenaNoVirtual() == NULL && dest_node_ != NULL) delete dest_node_;
-  dest_node_ = NULL;
-}
-inline const ::routeguide::node_t& node_t_dual_node_t_int::dest_node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.dest_node)
-  return dest_node_ != NULL ? *dest_node_ : *default_instance_->dest_node_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::mutable_dest_node() {
-  
-  if (dest_node_ == NULL) {
-    dest_node_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.dest_node)
-  return dest_node_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::release_dest_node() {
-  
-  ::routeguide::node_t* temp = dest_node_;
-  dest_node_ = NULL;
-  return temp;
-}
-inline void node_t_dual_node_t_int::set_allocated_dest_node(::routeguide::node_t* dest_node) {
-  delete dest_node_;
-  dest_node_ = dest_node;
-  if (dest_node) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.dest_node)
-}
-
-// optional .routeguide.node_t node_param1 = 2;
-inline bool node_t_dual_node_t_int::has_node_param1() const {
-  return !_is_default_instance_ && node_param1_ != NULL;
-}
-inline void node_t_dual_node_t_int::clear_node_param1() {
-  if (GetArenaNoVirtual() == NULL && node_param1_ != NULL) delete node_param1_;
-  node_param1_ = NULL;
-}
-inline const ::routeguide::node_t& node_t_dual_node_t_int::node_param1() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.node_param1)
-  return node_param1_ != NULL ? *node_param1_ : *default_instance_->node_param1_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::mutable_node_param1() {
-  
-  if (node_param1_ == NULL) {
-    node_param1_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.node_param1)
-  return node_param1_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::release_node_param1() {
-  
-  ::routeguide::node_t* temp = node_param1_;
-  node_param1_ = NULL;
-  return temp;
-}
-inline void node_t_dual_node_t_int::set_allocated_node_param1(::routeguide::node_t* node_param1) {
-  delete node_param1_;
-  node_param1_ = node_param1;
-  if (node_param1) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.node_param1)
-}
-
-// optional .routeguide.node_t node_param2 = 3;
-inline bool node_t_dual_node_t_int::has_node_param2() const {
-  return !_is_default_instance_ && node_param2_ != NULL;
-}
-inline void node_t_dual_node_t_int::clear_node_param2() {
-  if (GetArenaNoVirtual() == NULL && node_param2_ != NULL) delete node_param2_;
-  node_param2_ = NULL;
-}
-inline const ::routeguide::node_t& node_t_dual_node_t_int::node_param2() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.node_param2)
-  return node_param2_ != NULL ? *node_param2_ : *default_instance_->node_param2_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::mutable_node_param2() {
-  
-  if (node_param2_ == NULL) {
-    node_param2_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.node_param2)
-  return node_param2_;
-}
-inline ::routeguide::node_t* node_t_dual_node_t_int::release_node_param2() {
-  
-  ::routeguide::node_t* temp = node_param2_;
-  node_param2_ = NULL;
-  return temp;
-}
-inline void node_t_dual_node_t_int::set_allocated_node_param2(::routeguide::node_t* node_param2) {
-  delete node_param2_;
-  node_param2_ = node_param2;
-  if (node_param2) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.node_param2)
-}
-
-// optional int64 id = 4;
-inline void node_t_dual_node_t_int::clear_id() {
+// optional int64 id = 3;
+inline void m_node_t_node_t_int::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 node_t_dual_node_t_int::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.id)
+inline ::google::protobuf::int64 m_node_t_node_t_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.id)
   return id_;
 }
-inline void node_t_dual_node_t_int::set_id(::google::protobuf::int64 value) {
+inline void m_node_t_node_t_int::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t_dual_node_t_int.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t_node_t_int.id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1076,12 +786,10 @@ inline void node_t_dual_node_t_int::set_id(::google::protobuf::int64 value) {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace routeguide
+}  // namespace chord
 
 // @@protoc_insertion_point(global_scope)
 

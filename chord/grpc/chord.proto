@@ -7,7 +7,7 @@ option java_package = "io.grpc.examples.routeguide";
 option java_outer_classname = "RouteGuideProto";
 option objc_class_prefix = "RTG";
 
-package routeguide;
+package chord;
 
 // Interface exported by the server.
 service Messager { 
@@ -16,8 +16,8 @@ service Messager {
   rpc getSuccessor(m_void) returns (m_node_t) {}
   rpc findSuccessor(m_int) returns (m_node_t) {}
   rpc findClosestPrecedingFinger(m_int) returns (m_node_t) {}
-  rpc updateFingerTable(m_node_t_int) returns (m_node_t) {}
-  rpc removeNode(m_node_t_node_t_int) returns (m_node_t) {}
+  rpc updateFingerTable(m_node_t_int) returns (m_void) {}
+  rpc removeNode(m_node_t_node_t_int) returns (m_void) {}
 }
 
 // void reply
@@ -33,23 +33,14 @@ message m_node_t {
   int32 portno = 3;
   string machine_name = 4;
 }
-message m_node_t_dual{
-  m_node_t first = 1;
-  m_node_t second = 2;
-}
 message m_node_t_int{
   m_node_t node = 1;
   int64 id = 2;
 }
 message m_node_t_node_t_int{
-  m_node_t node = 1;
-  m_node_t_int entry = 2;
+  m_node_t node_1 = 1;
+  m_node_t node_2 = 2;
+  int64 id = 3;
 }
 
-message m_node_t_dual_node_t_int{
-  m_node_t dest_node = 1;
-  m_node_t node_param1 = 2;
-  m_node_t node_param2 = 3;
-  int64 id = 4;
-}
 

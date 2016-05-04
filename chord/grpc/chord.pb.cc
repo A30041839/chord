@@ -17,28 +17,25 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace routeguide {
+namespace chord {
 
 namespace {
 
-const ::google::protobuf::Descriptor* void_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* m_void_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  void_reflection_ = NULL;
-const ::google::protobuf::Descriptor* node_t_descriptor_ = NULL;
+  m_void_reflection_ = NULL;
+const ::google::protobuf::Descriptor* m_int_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  node_t_reflection_ = NULL;
-const ::google::protobuf::Descriptor* node_t_dual_descriptor_ = NULL;
+  m_int_reflection_ = NULL;
+const ::google::protobuf::Descriptor* m_node_t_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  node_t_dual_reflection_ = NULL;
-const ::google::protobuf::Descriptor* node_t_int_descriptor_ = NULL;
+  m_node_t_reflection_ = NULL;
+const ::google::protobuf::Descriptor* m_node_t_int_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  node_t_int_reflection_ = NULL;
-const ::google::protobuf::Descriptor* node_t_node_t_int_descriptor_ = NULL;
+  m_node_t_int_reflection_ = NULL;
+const ::google::protobuf::Descriptor* m_node_t_node_t_int_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  node_t_node_t_int_reflection_ = NULL;
-const ::google::protobuf::Descriptor* node_t_dual_node_t_int_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  node_t_dual_node_t_int_reflection_ = NULL;
+  m_node_t_node_t_int_reflection_ = NULL;
 
 }  // namespace
 
@@ -49,104 +46,86 @@ void protobuf_AssignDesc_chord_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "chord.proto");
   GOOGLE_CHECK(file != NULL);
-  void_descriptor_ = file->message_type(0);
-  static const int void_offsets_[1] = {
+  m_void_descriptor_ = file->message_type(0);
+  static const int m_void_offsets_[1] = {
   };
-  void_reflection_ =
+  m_void_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      void_descriptor_,
-      void::default_instance_,
-      void_offsets_,
+      m_void_descriptor_,
+      m_void::default_instance_,
+      m_void_offsets_,
       -1,
       -1,
       -1,
-      sizeof(void),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(void, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(void, _is_default_instance_));
-  node_t_descriptor_ = file->message_type(1);
-  static const int node_t_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, hostname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, portno_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, machine_name_),
+      sizeof(m_void),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_void, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_void, _is_default_instance_));
+  m_int_descriptor_ = file->message_type(1);
+  static const int m_int_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_int, id_),
   };
-  node_t_reflection_ =
+  m_int_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      node_t_descriptor_,
-      node_t::default_instance_,
-      node_t_offsets_,
+      m_int_descriptor_,
+      m_int::default_instance_,
+      m_int_offsets_,
       -1,
       -1,
       -1,
-      sizeof(node_t),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t, _is_default_instance_));
-  node_t_dual_descriptor_ = file->message_type(2);
-  static const int node_t_dual_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual, first_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual, second_),
+      sizeof(m_int),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_int, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_int, _is_default_instance_));
+  m_node_t_descriptor_ = file->message_type(2);
+  static const int m_node_t_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, hostname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, portno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, machine_name_),
   };
-  node_t_dual_reflection_ =
+  m_node_t_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      node_t_dual_descriptor_,
-      node_t_dual::default_instance_,
-      node_t_dual_offsets_,
+      m_node_t_descriptor_,
+      m_node_t::default_instance_,
+      m_node_t_offsets_,
       -1,
       -1,
       -1,
-      sizeof(node_t_dual),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual, _is_default_instance_));
-  node_t_int_descriptor_ = file->message_type(3);
-  static const int node_t_int_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_int, node_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_int, id_),
+      sizeof(m_node_t),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t, _is_default_instance_));
+  m_node_t_int_descriptor_ = file->message_type(3);
+  static const int m_node_t_int_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_int, node_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_int, id_),
   };
-  node_t_int_reflection_ =
+  m_node_t_int_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      node_t_int_descriptor_,
-      node_t_int::default_instance_,
-      node_t_int_offsets_,
+      m_node_t_int_descriptor_,
+      m_node_t_int::default_instance_,
+      m_node_t_int_offsets_,
       -1,
       -1,
       -1,
-      sizeof(node_t_int),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_int, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_int, _is_default_instance_));
-  node_t_node_t_int_descriptor_ = file->message_type(4);
-  static const int node_t_node_t_int_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_node_t_int, node_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_node_t_int, entry_),
+      sizeof(m_node_t_int),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_int, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_int, _is_default_instance_));
+  m_node_t_node_t_int_descriptor_ = file->message_type(4);
+  static const int m_node_t_node_t_int_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_node_t_int, node_1_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_node_t_int, node_2_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_node_t_int, id_),
   };
-  node_t_node_t_int_reflection_ =
+  m_node_t_node_t_int_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      node_t_node_t_int_descriptor_,
-      node_t_node_t_int::default_instance_,
-      node_t_node_t_int_offsets_,
+      m_node_t_node_t_int_descriptor_,
+      m_node_t_node_t_int::default_instance_,
+      m_node_t_node_t_int_offsets_,
       -1,
       -1,
       -1,
-      sizeof(node_t_node_t_int),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_node_t_int, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_node_t_int, _is_default_instance_));
-  node_t_dual_node_t_int_descriptor_ = file->message_type(5);
-  static const int node_t_dual_node_t_int_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, dest_node_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, node_param1_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, node_param2_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, id_),
-  };
-  node_t_dual_node_t_int_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      node_t_dual_node_t_int_descriptor_,
-      node_t_dual_node_t_int::default_instance_,
-      node_t_dual_node_t_int_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(node_t_dual_node_t_int),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(node_t_dual_node_t_int, _is_default_instance_));
+      sizeof(m_node_t_node_t_int),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_node_t_int, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(m_node_t_node_t_int, _is_default_instance_));
 }
 
 namespace {
@@ -160,34 +139,30 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      void_descriptor_, &void::default_instance());
+      m_void_descriptor_, &m_void::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      node_t_descriptor_, &node_t::default_instance());
+      m_int_descriptor_, &m_int::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      node_t_dual_descriptor_, &node_t_dual::default_instance());
+      m_node_t_descriptor_, &m_node_t::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      node_t_int_descriptor_, &node_t_int::default_instance());
+      m_node_t_int_descriptor_, &m_node_t_int::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      node_t_node_t_int_descriptor_, &node_t_node_t_int::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      node_t_dual_node_t_int_descriptor_, &node_t_dual_node_t_int::default_instance());
+      m_node_t_node_t_int_descriptor_, &m_node_t_node_t_int::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_chord_2eproto() {
-  delete void::default_instance_;
-  delete void_reflection_;
-  delete node_t::default_instance_;
-  delete node_t_reflection_;
-  delete node_t_dual::default_instance_;
-  delete node_t_dual_reflection_;
-  delete node_t_int::default_instance_;
-  delete node_t_int_reflection_;
-  delete node_t_node_t_int::default_instance_;
-  delete node_t_node_t_int_reflection_;
-  delete node_t_dual_node_t_int::default_instance_;
-  delete node_t_dual_node_t_int_reflection_;
+  delete m_void::default_instance_;
+  delete m_void_reflection_;
+  delete m_int::default_instance_;
+  delete m_int_reflection_;
+  delete m_node_t::default_instance_;
+  delete m_node_t_reflection_;
+  delete m_node_t_int::default_instance_;
+  delete m_node_t_int_reflection_;
+  delete m_node_t_node_t_int::default_instance_;
+  delete m_node_t_node_t_int_reflection_;
 }
 
 void protobuf_AddDesc_chord_2eproto() {
@@ -197,48 +172,37 @@ void protobuf_AddDesc_chord_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013chord.proto\022\nrouteguide\"\006\n\004void\"L\n\006nod"
-    "e_t\022\020\n\010hostname\030\001 \001(\t\022\n\n\002id\030\002 \001(\003\022\016\n\006por"
-    "tno\030\003 \001(\005\022\024\n\014machine_name\030\004 \001(\t\"T\n\013node_"
-    "t_dual\022!\n\005first\030\001 \001(\0132\022.routeguide.node_"
-    "t\022\"\n\006second\030\002 \001(\0132\022.routeguide.node_t\":\n"
-    "\nnode_t_int\022 \n\004node\030\001 \001(\0132\022.routeguide.n"
-    "ode_t\022\n\n\002id\030\002 \001(\003\"\\\n\021node_t_node_t_int\022 "
-    "\n\004node\030\001 \001(\0132\022.routeguide.node_t\022%\n\005entr"
-    "y\030\002 \001(\0132\026.routeguide.node_t_int\"\235\001\n\026node"
-    "_t_dual_node_t_int\022%\n\tdest_node\030\001 \001(\0132\022."
-    "routeguide.node_t\022\'\n\013node_param1\030\002 \001(\0132\022"
-    ".routeguide.node_t\022\'\n\013node_param2\030\003 \001(\0132"
-    "\022.routeguide.node_t\022\n\n\002id\030\004 \001(\0032\210\004\n\nRout"
-    "eGuide\022@\n\024getRemotePredecessor\022\022.routegu"
-    "ide.node_t\032\022.routeguide.node_t\"\000\022C\n\024setR"
-    "emotePredecessor\022\027.routeguide.node_t_dua"
-    "l\032\020.routeguide.void\"\000\022>\n\022getRemoteSucces"
-    "sor\022\022.routeguide.node_t\032\022.routeguide.nod"
-    "e_t\"\000\022C\n\023findRemoteSuccessor\022\026.routeguid"
-    "e.node_t_int\032\022.routeguide.node_t\"\000\022P\n fi"
-    "ndRemoteClosestPrecedingFinger\022\026.routegu"
-    "ide.node_t_int\032\022.routeguide.node_t\"\000\022N\n\027"
-    "updateRemoteFingerTable\022\035.routeguide.nod"
-    "e_t_node_t_int\032\022.routeguide.node_t\"\000\022L\n\020"
-    "removeRemoteNode\022\".routeguide.node_t_dua"
-    "l_node_t_int\032\022.routeguide.node_t\"\000B6\n\033io"
-    ".grpc.examples.routeguideB\017RouteGuidePro"
-    "toP\001\242\002\003RTGb\006proto3", 1098);
+    "\n\013chord.proto\022\005chord\"\010\n\006m_void\"\023\n\005m_int\022"
+    "\n\n\002id\030\001 \001(\003\"N\n\010m_node_t\022\020\n\010hostname\030\001 \001("
+    "\t\022\n\n\002id\030\002 \001(\003\022\016\n\006portno\030\003 \001(\005\022\024\n\014machine"
+    "_name\030\004 \001(\t\"9\n\014m_node_t_int\022\035\n\004node\030\001 \001("
+    "\0132\017.chord.m_node_t\022\n\n\002id\030\002 \001(\003\"c\n\023m_node"
+    "_t_node_t_int\022\037\n\006node_1\030\001 \001(\0132\017.chord.m_"
+    "node_t\022\037\n\006node_2\030\002 \001(\0132\017.chord.m_node_t\022"
+    "\n\n\002id\030\003 \001(\0032\213\003\n\010Messager\0222\n\016getPredecess"
+    "or\022\r.chord.m_void\032\017.chord.m_node_t\"\000\0222\n\016"
+    "setPredecessor\022\017.chord.m_node_t\032\r.chord."
+    "m_void\"\000\0220\n\014getSuccessor\022\r.chord.m_void\032"
+    "\017.chord.m_node_t\"\000\0220\n\rfindSuccessor\022\014.ch"
+    "ord.m_int\032\017.chord.m_node_t\"\000\022=\n\032findClos"
+    "estPrecedingFinger\022\014.chord.m_int\032\017.chord"
+    ".m_node_t\"\000\0229\n\021updateFingerTable\022\023.chord"
+    ".m_node_t_int\032\r.chord.m_void\"\000\0229\n\nremove"
+    "Node\022\032.chord.m_node_t_node_t_int\032\r.chord"
+    ".m_void\"\000B6\n\033io.grpc.examples.routeguide"
+    "B\017RouteGuideProtoP\001\242\002\003RTGb\006proto3", 753);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chord.proto", &protobuf_RegisterTypes);
-  void::default_instance_ = new void();
-  node_t::default_instance_ = new node_t();
-  node_t_dual::default_instance_ = new node_t_dual();
-  node_t_int::default_instance_ = new node_t_int();
-  node_t_node_t_int::default_instance_ = new node_t_node_t_int();
-  node_t_dual_node_t_int::default_instance_ = new node_t_dual_node_t_int();
-  void::default_instance_->InitAsDefaultInstance();
-  node_t::default_instance_->InitAsDefaultInstance();
-  node_t_dual::default_instance_->InitAsDefaultInstance();
-  node_t_int::default_instance_->InitAsDefaultInstance();
-  node_t_node_t_int::default_instance_->InitAsDefaultInstance();
-  node_t_dual_node_t_int::default_instance_->InitAsDefaultInstance();
+  m_void::default_instance_ = new m_void();
+  m_int::default_instance_ = new m_int();
+  m_node_t::default_instance_ = new m_node_t();
+  m_node_t_int::default_instance_ = new m_node_t_int();
+  m_node_t_node_t_int::default_instance_ = new m_node_t_node_t_int();
+  m_void::default_instance_->InitAsDefaultInstance();
+  m_int::default_instance_->InitAsDefaultInstance();
+  m_node_t::default_instance_->InitAsDefaultInstance();
+  m_node_t_int::default_instance_->InitAsDefaultInstance();
+  m_node_t_node_t_int::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_chord_2eproto);
 }
 
@@ -264,72 +228,72 @@ static void MergeFromFail(int line) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-void::void()
+m_void::m_void()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.void)
+  // @@protoc_insertion_point(constructor:chord.m_void)
 }
 
-void void::InitAsDefaultInstance() {
+void m_void::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-void::void(const void& from)
+m_void::m_void(const m_void& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.void)
+  // @@protoc_insertion_point(copy_constructor:chord.m_void)
 }
 
-void void::SharedCtor() {
+void m_void::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
-void::~void() {
-  // @@protoc_insertion_point(destructor:routeguide.void)
+m_void::~m_void() {
+  // @@protoc_insertion_point(destructor:chord.m_void)
   SharedDtor();
 }
 
-void void::SharedDtor() {
+void m_void::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void void::SetCachedSize(int size) const {
+void m_void::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* void::descriptor() {
+const ::google::protobuf::Descriptor* m_void::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return void_descriptor_;
+  return m_void_descriptor_;
 }
 
-const void& void::default_instance() {
+const m_void& m_void::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
   return *default_instance_;
 }
 
-void* void::default_instance_ = NULL;
+m_void* m_void::default_instance_ = NULL;
 
-void* void::New(::google::protobuf::Arena* arena) const {
-  void* n = new void;
+m_void* m_void::New(::google::protobuf::Arena* arena) const {
+  m_void* n = new m_void;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void void::Clear() {
+void m_void::Clear() {
 }
 
-bool void::MergePartialFromCodedStream(
+bool m_void::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.void)
+  // @@protoc_insertion_point(parse_start:chord.m_void)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -343,28 +307,28 @@ bool void::MergePartialFromCodedStream(
     DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
-  // @@protoc_insertion_point(parse_success:routeguide.void)
+  // @@protoc_insertion_point(parse_success:chord.m_void)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.void)
+  // @@protoc_insertion_point(parse_failure:chord.m_void)
   return false;
 #undef DO_
 }
 
-void void::SerializeWithCachedSizes(
+void m_void::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.void)
-  // @@protoc_insertion_point(serialize_end:routeguide.void)
+  // @@protoc_insertion_point(serialize_start:chord.m_void)
+  // @@protoc_insertion_point(serialize_end:chord.m_void)
 }
 
-::google::protobuf::uint8* void::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* m_void::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.void)
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.void)
+  // @@protoc_insertion_point(serialize_to_array_start:chord.m_void)
+  // @@protoc_insertion_point(serialize_to_array_end:chord.m_void)
   return target;
 }
 
-int void::ByteSize() const {
+int m_void::ByteSize() const {
   int total_size = 0;
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -373,10 +337,10 @@ int void::ByteSize() const {
   return total_size;
 }
 
-void void::MergeFrom(const ::google::protobuf::Message& from) {
+void m_void::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const void* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const void>(
+  const m_void* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const m_void>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -385,77 +349,303 @@ void void::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void void::MergeFrom(const void& from) {
+void m_void::MergeFrom(const m_void& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
 }
 
-void void::CopyFrom(const ::google::protobuf::Message& from) {
+void m_void::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void void::CopyFrom(const void& from) {
+void m_void::CopyFrom(const m_void& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool void::IsInitialized() const {
+bool m_void::IsInitialized() const {
 
   return true;
 }
 
-void void::Swap(void* other) {
+void m_void::Swap(m_void* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void void::InternalSwap(void* other) {
+void m_void::InternalSwap(m_void* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata void::GetMetadata() const {
+::google::protobuf::Metadata m_void::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = void_descriptor_;
-  metadata.reflection = void_reflection_;
+  metadata.descriptor = m_void_descriptor_;
+  metadata.reflection = m_void_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// void
+// m_void
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int node_t::kHostnameFieldNumber;
-const int node_t::kIdFieldNumber;
-const int node_t::kPortnoFieldNumber;
-const int node_t::kMachineNameFieldNumber;
+const int m_int::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-node_t::node_t()
+m_int::m_int()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.node_t)
+  // @@protoc_insertion_point(constructor:chord.m_int)
 }
 
-void node_t::InitAsDefaultInstance() {
+void m_int::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-node_t::node_t(const node_t& from)
+m_int::m_int(const m_int& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.node_t)
+  // @@protoc_insertion_point(copy_constructor:chord.m_int)
 }
 
-void node_t::SharedCtor() {
+void m_int::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+}
+
+m_int::~m_int() {
+  // @@protoc_insertion_point(destructor:chord.m_int)
+  SharedDtor();
+}
+
+void m_int::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void m_int::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* m_int::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return m_int_descriptor_;
+}
+
+const m_int& m_int::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
+  return *default_instance_;
+}
+
+m_int* m_int::default_instance_ = NULL;
+
+m_int* m_int::New(::google::protobuf::Arena* arena) const {
+  m_int* n = new m_int;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void m_int::Clear() {
+  id_ = GOOGLE_LONGLONG(0);
+}
+
+bool m_int::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:chord.m_int)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:chord.m_int)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:chord.m_int)
+  return false;
+#undef DO_
+}
+
+void m_int::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:chord.m_int)
+  // optional int64 id = 1;
+  if (this->id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:chord.m_int)
+}
+
+::google::protobuf::uint8* m_int::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:chord.m_int)
+  // optional int64 id = 1;
+  if (this->id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:chord.m_int)
+  return target;
+}
+
+int m_int::ByteSize() const {
+  int total_size = 0;
+
+  // optional int64 id = 1;
+  if (this->id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->id());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void m_int::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const m_int* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const m_int>(
+          &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void m_int::MergeFrom(const m_int& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.id() != 0) {
+    set_id(from.id());
+  }
+}
+
+void m_int::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void m_int::CopyFrom(const m_int& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool m_int::IsInitialized() const {
+
+  return true;
+}
+
+void m_int::Swap(m_int* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void m_int::InternalSwap(m_int* other) {
+  std::swap(id_, other->id_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata m_int::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = m_int_descriptor_;
+  metadata.reflection = m_int_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// m_int
+
+// optional int64 id = 1;
+void m_int::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+}
+ ::google::protobuf::int64 m_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_int.id)
+  return id_;
+}
+ void m_int::set_id(::google::protobuf::int64 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:chord.m_int.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int m_node_t::kHostnameFieldNumber;
+const int m_node_t::kIdFieldNumber;
+const int m_node_t::kPortnoFieldNumber;
+const int m_node_t::kMachineNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+m_node_t::m_node_t()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:chord.m_node_t)
+}
+
+void m_node_t::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+m_node_t::m_node_t(const m_node_t& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:chord.m_node_t)
+}
+
+void m_node_t::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
@@ -465,55 +655,55 @@ void node_t::SharedCtor() {
   machine_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-node_t::~node_t() {
-  // @@protoc_insertion_point(destructor:routeguide.node_t)
+m_node_t::~m_node_t() {
+  // @@protoc_insertion_point(destructor:chord.m_node_t)
   SharedDtor();
 }
 
-void node_t::SharedDtor() {
+void m_node_t::SharedDtor() {
   hostname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   machine_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void node_t::SetCachedSize(int size) const {
+void m_node_t::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* node_t::descriptor() {
+const ::google::protobuf::Descriptor* m_node_t::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return node_t_descriptor_;
+  return m_node_t_descriptor_;
 }
 
-const node_t& node_t::default_instance() {
+const m_node_t& m_node_t::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
   return *default_instance_;
 }
 
-node_t* node_t::default_instance_ = NULL;
+m_node_t* m_node_t::default_instance_ = NULL;
 
-node_t* node_t::New(::google::protobuf::Arena* arena) const {
-  node_t* n = new node_t;
+m_node_t* m_node_t::New(::google::protobuf::Arena* arena) const {
+  m_node_t* n = new m_node_t;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void node_t::Clear() {
+void m_node_t::Clear() {
   hostname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   id_ = GOOGLE_LONGLONG(0);
   portno_ = 0;
   machine_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool node_t::MergePartialFromCodedStream(
+bool m_node_t::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.node_t)
+  // @@protoc_insertion_point(parse_start:chord.m_node_t)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -527,7 +717,7 @@ bool node_t::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->hostname().data(), this->hostname().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "routeguide.node_t.hostname"));
+            "chord.m_node_t.hostname"));
         } else {
           goto handle_unusual;
         }
@@ -574,7 +764,7 @@ bool node_t::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->machine_name().data(), this->machine_name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "routeguide.node_t.machine_name"));
+            "chord.m_node_t.machine_name"));
         } else {
           goto handle_unusual;
         }
@@ -595,23 +785,23 @@ bool node_t::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:routeguide.node_t)
+  // @@protoc_insertion_point(parse_success:chord.m_node_t)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.node_t)
+  // @@protoc_insertion_point(parse_failure:chord.m_node_t)
   return false;
 #undef DO_
 }
 
-void node_t::SerializeWithCachedSizes(
+void m_node_t::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.node_t)
+  // @@protoc_insertion_point(serialize_start:chord.m_node_t)
   // optional string hostname = 1;
   if (this->hostname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hostname().data(), this->hostname().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "routeguide.node_t.hostname");
+      "chord.m_node_t.hostname");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->hostname(), output);
   }
@@ -631,23 +821,23 @@ void node_t::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->machine_name().data(), this->machine_name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "routeguide.node_t.machine_name");
+      "chord.m_node_t.machine_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->machine_name(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:routeguide.node_t)
+  // @@protoc_insertion_point(serialize_end:chord.m_node_t)
 }
 
-::google::protobuf::uint8* node_t::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* m_node_t::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.node_t)
+  // @@protoc_insertion_point(serialize_to_array_start:chord.m_node_t)
   // optional string hostname = 1;
   if (this->hostname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hostname().data(), this->hostname().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "routeguide.node_t.hostname");
+      "chord.m_node_t.hostname");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->hostname(), target);
@@ -668,17 +858,17 @@ void node_t::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->machine_name().data(), this->machine_name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "routeguide.node_t.machine_name");
+      "chord.m_node_t.machine_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->machine_name(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.node_t)
+  // @@protoc_insertion_point(serialize_to_array_end:chord.m_node_t)
   return target;
 }
 
-int node_t::ByteSize() const {
+int m_node_t::ByteSize() const {
   int total_size = 0;
 
   // optional string hostname = 1;
@@ -715,10 +905,10 @@ int node_t::ByteSize() const {
   return total_size;
 }
 
-void node_t::MergeFrom(const ::google::protobuf::Message& from) {
+void m_node_t::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const node_t* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const node_t>(
+  const m_node_t* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const m_node_t>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -727,7 +917,7 @@ void node_t::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void node_t::MergeFrom(const node_t& from) {
+void m_node_t::MergeFrom(const m_node_t& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from.hostname().size() > 0) {
 
@@ -745,28 +935,28 @@ void node_t::MergeFrom(const node_t& from) {
   }
 }
 
-void node_t::CopyFrom(const ::google::protobuf::Message& from) {
+void m_node_t::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void node_t::CopyFrom(const node_t& from) {
+void m_node_t::CopyFrom(const m_node_t& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool node_t::IsInitialized() const {
+bool m_node_t::IsInitialized() const {
 
   return true;
 }
 
-void node_t::Swap(node_t* other) {
+void m_node_t::Swap(m_node_t* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void node_t::InternalSwap(node_t* other) {
+void m_node_t::InternalSwap(m_node_t* other) {
   hostname_.Swap(&other->hostname_);
   std::swap(id_, other->id_);
   std::swap(portno_, other->portno_);
@@ -775,129 +965,129 @@ void node_t::InternalSwap(node_t* other) {
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata node_t::GetMetadata() const {
+::google::protobuf::Metadata m_node_t::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = node_t_descriptor_;
-  metadata.reflection = node_t_reflection_;
+  metadata.descriptor = m_node_t_descriptor_;
+  metadata.reflection = m_node_t_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// node_t
+// m_node_t
 
 // optional string hostname = 1;
-void node_t::clear_hostname() {
+void m_node_t::clear_hostname() {
   hostname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& node_t::hostname() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.hostname)
+ const ::std::string& m_node_t::hostname() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.hostname)
   return hostname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void node_t::set_hostname(const ::std::string& value) {
+ void m_node_t::set_hostname(const ::std::string& value) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.hostname)
 }
- void node_t::set_hostname(const char* value) {
+ void m_node_t::set_hostname(const char* value) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_char:chord.m_node_t.hostname)
 }
- void node_t::set_hostname(const char* value, size_t size) {
+ void m_node_t::set_hostname(const char* value, size_t size) {
   
   hostname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_pointer:chord.m_node_t.hostname)
 }
- ::std::string* node_t::mutable_hostname() {
+ ::std::string* m_node_t::mutable_hostname() {
   
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t.hostname)
   return hostname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* node_t::release_hostname() {
+ ::std::string* m_node_t::release_hostname() {
   
   return hostname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void node_t::set_allocated_hostname(::std::string* hostname) {
+ void m_node_t::set_allocated_hostname(::std::string* hostname) {
   if (hostname != NULL) {
     
   } else {
     
   }
   hostname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostname);
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t.hostname)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t.hostname)
 }
 
 // optional int64 id = 2;
-void node_t::clear_id() {
+void m_node_t::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
- ::google::protobuf::int64 node_t::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.id)
+ ::google::protobuf::int64 m_node_t::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.id)
   return id_;
 }
- void node_t::set_id(::google::protobuf::int64 value) {
+ void m_node_t::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.id)
 }
 
 // optional int32 portno = 3;
-void node_t::clear_portno() {
+void m_node_t::clear_portno() {
   portno_ = 0;
 }
- ::google::protobuf::int32 node_t::portno() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.portno)
+ ::google::protobuf::int32 m_node_t::portno() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.portno)
   return portno_;
 }
- void node_t::set_portno(::google::protobuf::int32 value) {
+ void m_node_t::set_portno(::google::protobuf::int32 value) {
   
   portno_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t.portno)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.portno)
 }
 
 // optional string machine_name = 4;
-void node_t::clear_machine_name() {
+void m_node_t::clear_machine_name() {
   machine_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& node_t::machine_name() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t.machine_name)
+ const ::std::string& m_node_t::machine_name() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t.machine_name)
   return machine_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void node_t::set_machine_name(const ::std::string& value) {
+ void m_node_t::set_machine_name(const ::std::string& value) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set:chord.m_node_t.machine_name)
 }
- void node_t::set_machine_name(const char* value) {
+ void m_node_t::set_machine_name(const char* value) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_char:chord.m_node_t.machine_name)
 }
- void node_t::set_machine_name(const char* value, size_t size) {
+ void m_node_t::set_machine_name(const char* value, size_t size) {
   
   machine_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_pointer:chord.m_node_t.machine_name)
 }
- ::std::string* node_t::mutable_machine_name() {
+ ::std::string* m_node_t::mutable_machine_name() {
   
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t.machine_name)
   return machine_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* node_t::release_machine_name() {
+ ::std::string* m_node_t::release_machine_name() {
   
   return machine_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void node_t::set_allocated_machine_name(::std::string* machine_name) {
+ void m_node_t::set_allocated_machine_name(::std::string* machine_name) {
   if (machine_name != NULL) {
     
   } else {
     
   }
   machine_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), machine_name);
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t.machine_name)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t.machine_name)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -905,422 +1095,89 @@ void node_t::clear_machine_name() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int node_t_dual::kFirstFieldNumber;
-const int node_t_dual::kSecondFieldNumber;
+const int m_node_t_int::kNodeFieldNumber;
+const int m_node_t_int::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-node_t_dual::node_t_dual()
+m_node_t_int::m_node_t_int()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.node_t_dual)
+  // @@protoc_insertion_point(constructor:chord.m_node_t_int)
 }
 
-void node_t_dual::InitAsDefaultInstance() {
+void m_node_t_int::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  first_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-  second_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
+  node_ = const_cast< ::chord::m_node_t*>(&::chord::m_node_t::default_instance());
 }
 
-node_t_dual::node_t_dual(const node_t_dual& from)
+m_node_t_int::m_node_t_int(const m_node_t_int& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.node_t_dual)
+  // @@protoc_insertion_point(copy_constructor:chord.m_node_t_int)
 }
 
-void node_t_dual::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
-  first_ = NULL;
-  second_ = NULL;
-}
-
-node_t_dual::~node_t_dual() {
-  // @@protoc_insertion_point(destructor:routeguide.node_t_dual)
-  SharedDtor();
-}
-
-void node_t_dual::SharedDtor() {
-  if (this != default_instance_) {
-    delete first_;
-    delete second_;
-  }
-}
-
-void node_t_dual::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* node_t_dual::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return node_t_dual_descriptor_;
-}
-
-const node_t_dual& node_t_dual::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
-  return *default_instance_;
-}
-
-node_t_dual* node_t_dual::default_instance_ = NULL;
-
-node_t_dual* node_t_dual::New(::google::protobuf::Arena* arena) const {
-  node_t_dual* n = new node_t_dual;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void node_t_dual::Clear() {
-  if (GetArenaNoVirtual() == NULL && first_ != NULL) delete first_;
-  first_ = NULL;
-  if (GetArenaNoVirtual() == NULL && second_ != NULL) delete second_;
-  second_ = NULL;
-}
-
-bool node_t_dual::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.node_t_dual)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .routeguide.node_t first = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_first()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_second;
-        break;
-      }
-
-      // optional .routeguide.node_t second = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_second:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_second()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:routeguide.node_t_dual)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.node_t_dual)
-  return false;
-#undef DO_
-}
-
-void node_t_dual::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.node_t_dual)
-  // optional .routeguide.node_t first = 1;
-  if (this->has_first()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->first_, output);
-  }
-
-  // optional .routeguide.node_t second = 2;
-  if (this->has_second()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->second_, output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:routeguide.node_t_dual)
-}
-
-::google::protobuf::uint8* node_t_dual::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.node_t_dual)
-  // optional .routeguide.node_t first = 1;
-  if (this->has_first()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, *this->first_, target);
-  }
-
-  // optional .routeguide.node_t second = 2;
-  if (this->has_second()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, *this->second_, target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.node_t_dual)
-  return target;
-}
-
-int node_t_dual::ByteSize() const {
-  int total_size = 0;
-
-  // optional .routeguide.node_t first = 1;
-  if (this->has_first()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->first_);
-  }
-
-  // optional .routeguide.node_t second = 2;
-  if (this->has_second()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->second_);
-  }
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void node_t_dual::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const node_t_dual* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const node_t_dual>(
-          &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void node_t_dual::MergeFrom(const node_t_dual& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_first()) {
-    mutable_first()->::routeguide::node_t::MergeFrom(from.first());
-  }
-  if (from.has_second()) {
-    mutable_second()->::routeguide::node_t::MergeFrom(from.second());
-  }
-}
-
-void node_t_dual::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void node_t_dual::CopyFrom(const node_t_dual& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool node_t_dual::IsInitialized() const {
-
-  return true;
-}
-
-void node_t_dual::Swap(node_t_dual* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void node_t_dual::InternalSwap(node_t_dual* other) {
-  std::swap(first_, other->first_);
-  std::swap(second_, other->second_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata node_t_dual::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = node_t_dual_descriptor_;
-  metadata.reflection = node_t_dual_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// node_t_dual
-
-// optional .routeguide.node_t first = 1;
-bool node_t_dual::has_first() const {
-  return !_is_default_instance_ && first_ != NULL;
-}
-void node_t_dual::clear_first() {
-  if (GetArenaNoVirtual() == NULL && first_ != NULL) delete first_;
-  first_ = NULL;
-}
-const ::routeguide::node_t& node_t_dual::first() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual.first)
-  return first_ != NULL ? *first_ : *default_instance_->first_;
-}
-::routeguide::node_t* node_t_dual::mutable_first() {
-  
-  if (first_ == NULL) {
-    first_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual.first)
-  return first_;
-}
-::routeguide::node_t* node_t_dual::release_first() {
-  
-  ::routeguide::node_t* temp = first_;
-  first_ = NULL;
-  return temp;
-}
-void node_t_dual::set_allocated_first(::routeguide::node_t* first) {
-  delete first_;
-  first_ = first;
-  if (first) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual.first)
-}
-
-// optional .routeguide.node_t second = 2;
-bool node_t_dual::has_second() const {
-  return !_is_default_instance_ && second_ != NULL;
-}
-void node_t_dual::clear_second() {
-  if (GetArenaNoVirtual() == NULL && second_ != NULL) delete second_;
-  second_ = NULL;
-}
-const ::routeguide::node_t& node_t_dual::second() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual.second)
-  return second_ != NULL ? *second_ : *default_instance_->second_;
-}
-::routeguide::node_t* node_t_dual::mutable_second() {
-  
-  if (second_ == NULL) {
-    second_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual.second)
-  return second_;
-}
-::routeguide::node_t* node_t_dual::release_second() {
-  
-  ::routeguide::node_t* temp = second_;
-  second_ = NULL;
-  return temp;
-}
-void node_t_dual::set_allocated_second(::routeguide::node_t* second) {
-  delete second_;
-  second_ = second;
-  if (second) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual.second)
-}
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int node_t_int::kNodeFieldNumber;
-const int node_t_int::kIdFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-node_t_int::node_t_int()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.node_t_int)
-}
-
-void node_t_int::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  node_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-}
-
-node_t_int::node_t_int(const node_t_int& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.node_t_int)
-}
-
-void node_t_int::SharedCtor() {
+void m_node_t_int::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   node_ = NULL;
   id_ = GOOGLE_LONGLONG(0);
 }
 
-node_t_int::~node_t_int() {
-  // @@protoc_insertion_point(destructor:routeguide.node_t_int)
+m_node_t_int::~m_node_t_int() {
+  // @@protoc_insertion_point(destructor:chord.m_node_t_int)
   SharedDtor();
 }
 
-void node_t_int::SharedDtor() {
+void m_node_t_int::SharedDtor() {
   if (this != default_instance_) {
     delete node_;
   }
 }
 
-void node_t_int::SetCachedSize(int size) const {
+void m_node_t_int::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* node_t_int::descriptor() {
+const ::google::protobuf::Descriptor* m_node_t_int::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return node_t_int_descriptor_;
+  return m_node_t_int_descriptor_;
 }
 
-const node_t_int& node_t_int::default_instance() {
+const m_node_t_int& m_node_t_int::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
   return *default_instance_;
 }
 
-node_t_int* node_t_int::default_instance_ = NULL;
+m_node_t_int* m_node_t_int::default_instance_ = NULL;
 
-node_t_int* node_t_int::New(::google::protobuf::Arena* arena) const {
-  node_t_int* n = new node_t_int;
+m_node_t_int* m_node_t_int::New(::google::protobuf::Arena* arena) const {
+  m_node_t_int* n = new m_node_t_int;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void node_t_int::Clear() {
+void m_node_t_int::Clear() {
   if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
   node_ = NULL;
   id_ = GOOGLE_LONGLONG(0);
 }
 
-bool node_t_int::MergePartialFromCodedStream(
+bool m_node_t_int::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.node_t_int)
+  // @@protoc_insertion_point(parse_start:chord.m_node_t_int)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .routeguide.node_t node = 1;
+      // optional .chord.m_node_t node = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -1360,18 +1217,18 @@ bool node_t_int::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:routeguide.node_t_int)
+  // @@protoc_insertion_point(parse_success:chord.m_node_t_int)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.node_t_int)
+  // @@protoc_insertion_point(parse_failure:chord.m_node_t_int)
   return false;
 #undef DO_
 }
 
-void node_t_int::SerializeWithCachedSizes(
+void m_node_t_int::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.node_t_int)
-  // optional .routeguide.node_t node = 1;
+  // @@protoc_insertion_point(serialize_start:chord.m_node_t_int)
+  // optional .chord.m_node_t node = 1;
   if (this->has_node()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->node_, output);
@@ -1382,13 +1239,13 @@ void node_t_int::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:routeguide.node_t_int)
+  // @@protoc_insertion_point(serialize_end:chord.m_node_t_int)
 }
 
-::google::protobuf::uint8* node_t_int::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* m_node_t_int::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.node_t_int)
-  // optional .routeguide.node_t node = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:chord.m_node_t_int)
+  // optional .chord.m_node_t node = 1;
   if (this->has_node()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1400,14 +1257,14 @@ void node_t_int::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.node_t_int)
+  // @@protoc_insertion_point(serialize_to_array_end:chord.m_node_t_int)
   return target;
 }
 
-int node_t_int::ByteSize() const {
+int m_node_t_int::ByteSize() const {
   int total_size = 0;
 
-  // optional .routeguide.node_t node = 1;
+  // optional .chord.m_node_t node = 1;
   if (this->has_node()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1427,10 +1284,10 @@ int node_t_int::ByteSize() const {
   return total_size;
 }
 
-void node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
+void m_node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const node_t_int* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const node_t_int>(
+  const m_node_t_int* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const m_node_t_int>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1439,82 +1296,82 @@ void node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void node_t_int::MergeFrom(const node_t_int& from) {
+void m_node_t_int::MergeFrom(const m_node_t_int& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from.has_node()) {
-    mutable_node()->::routeguide::node_t::MergeFrom(from.node());
+    mutable_node()->::chord::m_node_t::MergeFrom(from.node());
   }
   if (from.id() != 0) {
     set_id(from.id());
   }
 }
 
-void node_t_int::CopyFrom(const ::google::protobuf::Message& from) {
+void m_node_t_int::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void node_t_int::CopyFrom(const node_t_int& from) {
+void m_node_t_int::CopyFrom(const m_node_t_int& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool node_t_int::IsInitialized() const {
+bool m_node_t_int::IsInitialized() const {
 
   return true;
 }
 
-void node_t_int::Swap(node_t_int* other) {
+void m_node_t_int::Swap(m_node_t_int* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void node_t_int::InternalSwap(node_t_int* other) {
+void m_node_t_int::InternalSwap(m_node_t_int* other) {
   std::swap(node_, other->node_);
   std::swap(id_, other->id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata node_t_int::GetMetadata() const {
+::google::protobuf::Metadata m_node_t_int::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = node_t_int_descriptor_;
-  metadata.reflection = node_t_int_reflection_;
+  metadata.descriptor = m_node_t_int_descriptor_;
+  metadata.reflection = m_node_t_int_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// node_t_int
+// m_node_t_int
 
-// optional .routeguide.node_t node = 1;
-bool node_t_int::has_node() const {
+// optional .chord.m_node_t node = 1;
+bool m_node_t_int::has_node() const {
   return !_is_default_instance_ && node_ != NULL;
 }
-void node_t_int::clear_node() {
+void m_node_t_int::clear_node() {
   if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
   node_ = NULL;
 }
-const ::routeguide::node_t& node_t_int::node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_int.node)
+const ::chord::m_node_t& m_node_t_int::node() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_int.node)
   return node_ != NULL ? *node_ : *default_instance_->node_;
 }
-::routeguide::node_t* node_t_int::mutable_node() {
+::chord::m_node_t* m_node_t_int::mutable_node() {
   
   if (node_ == NULL) {
-    node_ = new ::routeguide::node_t;
+    node_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_int.node)
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_int.node)
   return node_;
 }
-::routeguide::node_t* node_t_int::release_node() {
+::chord::m_node_t* m_node_t_int::release_node() {
   
-  ::routeguide::node_t* temp = node_;
+  ::chord::m_node_t* temp = node_;
   node_ = NULL;
   return temp;
 }
-void node_t_int::set_allocated_node(::routeguide::node_t* node) {
+void m_node_t_int::set_allocated_node(::chord::m_node_t* node) {
   delete node_;
   node_ = node;
   if (node) {
@@ -1522,21 +1379,21 @@ void node_t_int::set_allocated_node(::routeguide::node_t* node) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_int.node)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_int.node)
 }
 
 // optional int64 id = 2;
-void node_t_int::clear_id() {
+void m_node_t_int::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
- ::google::protobuf::int64 node_t_int::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_int.id)
+ ::google::protobuf::int64 m_node_t_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_int.id)
   return id_;
 }
- void node_t_int::set_id(::google::protobuf::int64 value) {
+ void m_node_t_int::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t_int.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t_int.id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1544,474 +1401,122 @@ void node_t_int::clear_id() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int node_t_node_t_int::kNodeFieldNumber;
-const int node_t_node_t_int::kEntryFieldNumber;
+const int m_node_t_node_t_int::kNode1FieldNumber;
+const int m_node_t_node_t_int::kNode2FieldNumber;
+const int m_node_t_node_t_int::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-node_t_node_t_int::node_t_node_t_int()
+m_node_t_node_t_int::m_node_t_node_t_int()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.node_t_node_t_int)
+  // @@protoc_insertion_point(constructor:chord.m_node_t_node_t_int)
 }
 
-void node_t_node_t_int::InitAsDefaultInstance() {
+void m_node_t_node_t_int::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  node_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-  entry_ = const_cast< ::routeguide::node_t_int*>(&::routeguide::node_t_int::default_instance());
+  node_1_ = const_cast< ::chord::m_node_t*>(&::chord::m_node_t::default_instance());
+  node_2_ = const_cast< ::chord::m_node_t*>(&::chord::m_node_t::default_instance());
 }
 
-node_t_node_t_int::node_t_node_t_int(const node_t_node_t_int& from)
+m_node_t_node_t_int::m_node_t_node_t_int(const m_node_t_node_t_int& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.node_t_node_t_int)
+  // @@protoc_insertion_point(copy_constructor:chord.m_node_t_node_t_int)
 }
 
-void node_t_node_t_int::SharedCtor() {
+void m_node_t_node_t_int::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
-  node_ = NULL;
-  entry_ = NULL;
+  node_1_ = NULL;
+  node_2_ = NULL;
+  id_ = GOOGLE_LONGLONG(0);
 }
 
-node_t_node_t_int::~node_t_node_t_int() {
-  // @@protoc_insertion_point(destructor:routeguide.node_t_node_t_int)
+m_node_t_node_t_int::~m_node_t_node_t_int() {
+  // @@protoc_insertion_point(destructor:chord.m_node_t_node_t_int)
   SharedDtor();
 }
 
-void node_t_node_t_int::SharedDtor() {
+void m_node_t_node_t_int::SharedDtor() {
   if (this != default_instance_) {
-    delete node_;
-    delete entry_;
+    delete node_1_;
+    delete node_2_;
   }
 }
 
-void node_t_node_t_int::SetCachedSize(int size) const {
+void m_node_t_node_t_int::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* node_t_node_t_int::descriptor() {
+const ::google::protobuf::Descriptor* m_node_t_node_t_int::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return node_t_node_t_int_descriptor_;
+  return m_node_t_node_t_int_descriptor_;
 }
 
-const node_t_node_t_int& node_t_node_t_int::default_instance() {
+const m_node_t_node_t_int& m_node_t_node_t_int::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
   return *default_instance_;
 }
 
-node_t_node_t_int* node_t_node_t_int::default_instance_ = NULL;
+m_node_t_node_t_int* m_node_t_node_t_int::default_instance_ = NULL;
 
-node_t_node_t_int* node_t_node_t_int::New(::google::protobuf::Arena* arena) const {
-  node_t_node_t_int* n = new node_t_node_t_int;
+m_node_t_node_t_int* m_node_t_node_t_int::New(::google::protobuf::Arena* arena) const {
+  m_node_t_node_t_int* n = new m_node_t_node_t_int;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void node_t_node_t_int::Clear() {
-  if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
-  node_ = NULL;
-  if (GetArenaNoVirtual() == NULL && entry_ != NULL) delete entry_;
-  entry_ = NULL;
+void m_node_t_node_t_int::Clear() {
+  if (GetArenaNoVirtual() == NULL && node_1_ != NULL) delete node_1_;
+  node_1_ = NULL;
+  if (GetArenaNoVirtual() == NULL && node_2_ != NULL) delete node_2_;
+  node_2_ = NULL;
+  id_ = GOOGLE_LONGLONG(0);
 }
 
-bool node_t_node_t_int::MergePartialFromCodedStream(
+bool m_node_t_node_t_int::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.node_t_node_t_int)
+  // @@protoc_insertion_point(parse_start:chord.m_node_t_node_t_int)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .routeguide.node_t node = 1;
+      // optional .chord.m_node_t node_1 = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_node()));
+               input, mutable_node_1()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_entry;
+        if (input->ExpectTag(18)) goto parse_node_2;
         break;
       }
 
-      // optional .routeguide.node_t_int entry = 2;
+      // optional .chord.m_node_t node_2 = 2;
       case 2: {
         if (tag == 18) {
-         parse_entry:
+         parse_node_2:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_entry()));
+               input, mutable_node_2()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
+        if (input->ExpectTag(24)) goto parse_id;
         break;
       }
 
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:routeguide.node_t_node_t_int)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.node_t_node_t_int)
-  return false;
-#undef DO_
-}
-
-void node_t_node_t_int::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.node_t_node_t_int)
-  // optional .routeguide.node_t node = 1;
-  if (this->has_node()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->node_, output);
-  }
-
-  // optional .routeguide.node_t_int entry = 2;
-  if (this->has_entry()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->entry_, output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:routeguide.node_t_node_t_int)
-}
-
-::google::protobuf::uint8* node_t_node_t_int::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.node_t_node_t_int)
-  // optional .routeguide.node_t node = 1;
-  if (this->has_node()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, *this->node_, target);
-  }
-
-  // optional .routeguide.node_t_int entry = 2;
-  if (this->has_entry()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, *this->entry_, target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.node_t_node_t_int)
-  return target;
-}
-
-int node_t_node_t_int::ByteSize() const {
-  int total_size = 0;
-
-  // optional .routeguide.node_t node = 1;
-  if (this->has_node()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->node_);
-  }
-
-  // optional .routeguide.node_t_int entry = 2;
-  if (this->has_entry()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->entry_);
-  }
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void node_t_node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const node_t_node_t_int* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const node_t_node_t_int>(
-          &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void node_t_node_t_int::MergeFrom(const node_t_node_t_int& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_node()) {
-    mutable_node()->::routeguide::node_t::MergeFrom(from.node());
-  }
-  if (from.has_entry()) {
-    mutable_entry()->::routeguide::node_t_int::MergeFrom(from.entry());
-  }
-}
-
-void node_t_node_t_int::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void node_t_node_t_int::CopyFrom(const node_t_node_t_int& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool node_t_node_t_int::IsInitialized() const {
-
-  return true;
-}
-
-void node_t_node_t_int::Swap(node_t_node_t_int* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void node_t_node_t_int::InternalSwap(node_t_node_t_int* other) {
-  std::swap(node_, other->node_);
-  std::swap(entry_, other->entry_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata node_t_node_t_int::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = node_t_node_t_int_descriptor_;
-  metadata.reflection = node_t_node_t_int_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// node_t_node_t_int
-
-// optional .routeguide.node_t node = 1;
-bool node_t_node_t_int::has_node() const {
-  return !_is_default_instance_ && node_ != NULL;
-}
-void node_t_node_t_int::clear_node() {
-  if (GetArenaNoVirtual() == NULL && node_ != NULL) delete node_;
-  node_ = NULL;
-}
-const ::routeguide::node_t& node_t_node_t_int::node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_node_t_int.node)
-  return node_ != NULL ? *node_ : *default_instance_->node_;
-}
-::routeguide::node_t* node_t_node_t_int::mutable_node() {
-  
-  if (node_ == NULL) {
-    node_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_node_t_int.node)
-  return node_;
-}
-::routeguide::node_t* node_t_node_t_int::release_node() {
-  
-  ::routeguide::node_t* temp = node_;
-  node_ = NULL;
-  return temp;
-}
-void node_t_node_t_int::set_allocated_node(::routeguide::node_t* node) {
-  delete node_;
-  node_ = node;
-  if (node) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_node_t_int.node)
-}
-
-// optional .routeguide.node_t_int entry = 2;
-bool node_t_node_t_int::has_entry() const {
-  return !_is_default_instance_ && entry_ != NULL;
-}
-void node_t_node_t_int::clear_entry() {
-  if (GetArenaNoVirtual() == NULL && entry_ != NULL) delete entry_;
-  entry_ = NULL;
-}
-const ::routeguide::node_t_int& node_t_node_t_int::entry() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_node_t_int.entry)
-  return entry_ != NULL ? *entry_ : *default_instance_->entry_;
-}
-::routeguide::node_t_int* node_t_node_t_int::mutable_entry() {
-  
-  if (entry_ == NULL) {
-    entry_ = new ::routeguide::node_t_int;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_node_t_int.entry)
-  return entry_;
-}
-::routeguide::node_t_int* node_t_node_t_int::release_entry() {
-  
-  ::routeguide::node_t_int* temp = entry_;
-  entry_ = NULL;
-  return temp;
-}
-void node_t_node_t_int::set_allocated_entry(::routeguide::node_t_int* entry) {
-  delete entry_;
-  entry_ = entry;
-  if (entry) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_node_t_int.entry)
-}
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int node_t_dual_node_t_int::kDestNodeFieldNumber;
-const int node_t_dual_node_t_int::kNodeParam1FieldNumber;
-const int node_t_dual_node_t_int::kNodeParam2FieldNumber;
-const int node_t_dual_node_t_int::kIdFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-node_t_dual_node_t_int::node_t_dual_node_t_int()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:routeguide.node_t_dual_node_t_int)
-}
-
-void node_t_dual_node_t_int::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  dest_node_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-  node_param1_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-  node_param2_ = const_cast< ::routeguide::node_t*>(&::routeguide::node_t::default_instance());
-}
-
-node_t_dual_node_t_int::node_t_dual_node_t_int(const node_t_dual_node_t_int& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:routeguide.node_t_dual_node_t_int)
-}
-
-void node_t_dual_node_t_int::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
-  dest_node_ = NULL;
-  node_param1_ = NULL;
-  node_param2_ = NULL;
-  id_ = GOOGLE_LONGLONG(0);
-}
-
-node_t_dual_node_t_int::~node_t_dual_node_t_int() {
-  // @@protoc_insertion_point(destructor:routeguide.node_t_dual_node_t_int)
-  SharedDtor();
-}
-
-void node_t_dual_node_t_int::SharedDtor() {
-  if (this != default_instance_) {
-    delete dest_node_;
-    delete node_param1_;
-    delete node_param2_;
-  }
-}
-
-void node_t_dual_node_t_int::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* node_t_dual_node_t_int::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return node_t_dual_node_t_int_descriptor_;
-}
-
-const node_t_dual_node_t_int& node_t_dual_node_t_int::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_chord_2eproto();
-  return *default_instance_;
-}
-
-node_t_dual_node_t_int* node_t_dual_node_t_int::default_instance_ = NULL;
-
-node_t_dual_node_t_int* node_t_dual_node_t_int::New(::google::protobuf::Arena* arena) const {
-  node_t_dual_node_t_int* n = new node_t_dual_node_t_int;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void node_t_dual_node_t_int::Clear() {
-  if (GetArenaNoVirtual() == NULL && dest_node_ != NULL) delete dest_node_;
-  dest_node_ = NULL;
-  if (GetArenaNoVirtual() == NULL && node_param1_ != NULL) delete node_param1_;
-  node_param1_ = NULL;
-  if (GetArenaNoVirtual() == NULL && node_param2_ != NULL) delete node_param2_;
-  node_param2_ = NULL;
-  id_ = GOOGLE_LONGLONG(0);
-}
-
-bool node_t_dual_node_t_int::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:routeguide.node_t_dual_node_t_int)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .routeguide.node_t dest_node = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_dest_node()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_node_param1;
-        break;
-      }
-
-      // optional .routeguide.node_t node_param1 = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_node_param1:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_node_param1()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_node_param2;
-        break;
-      }
-
-      // optional .routeguide.node_t node_param2 = 3;
+      // optional int64 id = 3;
       case 3: {
-        if (tag == 26) {
-         parse_node_param2:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_node_param2()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_id;
-        break;
-      }
-
-      // optional int64 id = 4;
-      case 4: {
-        if (tag == 32) {
+        if (tag == 24) {
          parse_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -2037,101 +1542,81 @@ bool node_t_dual_node_t_int::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:routeguide.node_t_dual_node_t_int)
+  // @@protoc_insertion_point(parse_success:chord.m_node_t_node_t_int)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:routeguide.node_t_dual_node_t_int)
+  // @@protoc_insertion_point(parse_failure:chord.m_node_t_node_t_int)
   return false;
 #undef DO_
 }
 
-void node_t_dual_node_t_int::SerializeWithCachedSizes(
+void m_node_t_node_t_int::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:routeguide.node_t_dual_node_t_int)
-  // optional .routeguide.node_t dest_node = 1;
-  if (this->has_dest_node()) {
+  // @@protoc_insertion_point(serialize_start:chord.m_node_t_node_t_int)
+  // optional .chord.m_node_t node_1 = 1;
+  if (this->has_node_1()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->dest_node_, output);
+      1, *this->node_1_, output);
   }
 
-  // optional .routeguide.node_t node_param1 = 2;
-  if (this->has_node_param1()) {
+  // optional .chord.m_node_t node_2 = 2;
+  if (this->has_node_2()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->node_param1_, output);
+      2, *this->node_2_, output);
   }
 
-  // optional .routeguide.node_t node_param2 = 3;
-  if (this->has_node_param2()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->node_param2_, output);
-  }
-
-  // optional int64 id = 4;
+  // optional int64 id = 3;
   if (this->id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->id(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:routeguide.node_t_dual_node_t_int)
+  // @@protoc_insertion_point(serialize_end:chord.m_node_t_node_t_int)
 }
 
-::google::protobuf::uint8* node_t_dual_node_t_int::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* m_node_t_node_t_int::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:routeguide.node_t_dual_node_t_int)
-  // optional .routeguide.node_t dest_node = 1;
-  if (this->has_dest_node()) {
+  // @@protoc_insertion_point(serialize_to_array_start:chord.m_node_t_node_t_int)
+  // optional .chord.m_node_t node_1 = 1;
+  if (this->has_node_1()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, *this->dest_node_, target);
+        1, *this->node_1_, target);
   }
 
-  // optional .routeguide.node_t node_param1 = 2;
-  if (this->has_node_param1()) {
+  // optional .chord.m_node_t node_2 = 2;
+  if (this->has_node_2()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, *this->node_param1_, target);
+        2, *this->node_2_, target);
   }
 
-  // optional .routeguide.node_t node_param2 = 3;
-  if (this->has_node_param2()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, *this->node_param2_, target);
-  }
-
-  // optional int64 id = 4;
+  // optional int64 id = 3;
   if (this->id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->id(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:routeguide.node_t_dual_node_t_int)
+  // @@protoc_insertion_point(serialize_to_array_end:chord.m_node_t_node_t_int)
   return target;
 }
 
-int node_t_dual_node_t_int::ByteSize() const {
+int m_node_t_node_t_int::ByteSize() const {
   int total_size = 0;
 
-  // optional .routeguide.node_t dest_node = 1;
-  if (this->has_dest_node()) {
+  // optional .chord.m_node_t node_1 = 1;
+  if (this->has_node_1()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->dest_node_);
+        *this->node_1_);
   }
 
-  // optional .routeguide.node_t node_param1 = 2;
-  if (this->has_node_param1()) {
+  // optional .chord.m_node_t node_2 = 2;
+  if (this->has_node_2()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->node_param1_);
+        *this->node_2_);
   }
 
-  // optional .routeguide.node_t node_param2 = 3;
-  if (this->has_node_param2()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->node_param2_);
-  }
-
-  // optional int64 id = 4;
+  // optional int64 id = 3;
   if (this->id() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -2144,10 +1629,10 @@ int node_t_dual_node_t_int::ByteSize() const {
   return total_size;
 }
 
-void node_t_dual_node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
+void m_node_t_node_t_int::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const node_t_dual_node_t_int* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const node_t_dual_node_t_int>(
+  const m_node_t_node_t_int* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const m_node_t_node_t_int>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2156,192 +1641,151 @@ void node_t_dual_node_t_int::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void node_t_dual_node_t_int::MergeFrom(const node_t_dual_node_t_int& from) {
+void m_node_t_node_t_int::MergeFrom(const m_node_t_node_t_int& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_dest_node()) {
-    mutable_dest_node()->::routeguide::node_t::MergeFrom(from.dest_node());
+  if (from.has_node_1()) {
+    mutable_node_1()->::chord::m_node_t::MergeFrom(from.node_1());
   }
-  if (from.has_node_param1()) {
-    mutable_node_param1()->::routeguide::node_t::MergeFrom(from.node_param1());
-  }
-  if (from.has_node_param2()) {
-    mutable_node_param2()->::routeguide::node_t::MergeFrom(from.node_param2());
+  if (from.has_node_2()) {
+    mutable_node_2()->::chord::m_node_t::MergeFrom(from.node_2());
   }
   if (from.id() != 0) {
     set_id(from.id());
   }
 }
 
-void node_t_dual_node_t_int::CopyFrom(const ::google::protobuf::Message& from) {
+void m_node_t_node_t_int::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void node_t_dual_node_t_int::CopyFrom(const node_t_dual_node_t_int& from) {
+void m_node_t_node_t_int::CopyFrom(const m_node_t_node_t_int& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool node_t_dual_node_t_int::IsInitialized() const {
+bool m_node_t_node_t_int::IsInitialized() const {
 
   return true;
 }
 
-void node_t_dual_node_t_int::Swap(node_t_dual_node_t_int* other) {
+void m_node_t_node_t_int::Swap(m_node_t_node_t_int* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void node_t_dual_node_t_int::InternalSwap(node_t_dual_node_t_int* other) {
-  std::swap(dest_node_, other->dest_node_);
-  std::swap(node_param1_, other->node_param1_);
-  std::swap(node_param2_, other->node_param2_);
+void m_node_t_node_t_int::InternalSwap(m_node_t_node_t_int* other) {
+  std::swap(node_1_, other->node_1_);
+  std::swap(node_2_, other->node_2_);
   std::swap(id_, other->id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata node_t_dual_node_t_int::GetMetadata() const {
+::google::protobuf::Metadata m_node_t_node_t_int::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = node_t_dual_node_t_int_descriptor_;
-  metadata.reflection = node_t_dual_node_t_int_reflection_;
+  metadata.descriptor = m_node_t_node_t_int_descriptor_;
+  metadata.reflection = m_node_t_node_t_int_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// node_t_dual_node_t_int
+// m_node_t_node_t_int
 
-// optional .routeguide.node_t dest_node = 1;
-bool node_t_dual_node_t_int::has_dest_node() const {
-  return !_is_default_instance_ && dest_node_ != NULL;
+// optional .chord.m_node_t node_1 = 1;
+bool m_node_t_node_t_int::has_node_1() const {
+  return !_is_default_instance_ && node_1_ != NULL;
 }
-void node_t_dual_node_t_int::clear_dest_node() {
-  if (GetArenaNoVirtual() == NULL && dest_node_ != NULL) delete dest_node_;
-  dest_node_ = NULL;
+void m_node_t_node_t_int::clear_node_1() {
+  if (GetArenaNoVirtual() == NULL && node_1_ != NULL) delete node_1_;
+  node_1_ = NULL;
 }
-const ::routeguide::node_t& node_t_dual_node_t_int::dest_node() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.dest_node)
-  return dest_node_ != NULL ? *dest_node_ : *default_instance_->dest_node_;
+const ::chord::m_node_t& m_node_t_node_t_int::node_1() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.node_1)
+  return node_1_ != NULL ? *node_1_ : *default_instance_->node_1_;
 }
-::routeguide::node_t* node_t_dual_node_t_int::mutable_dest_node() {
+::chord::m_node_t* m_node_t_node_t_int::mutable_node_1() {
   
-  if (dest_node_ == NULL) {
-    dest_node_ = new ::routeguide::node_t;
+  if (node_1_ == NULL) {
+    node_1_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.dest_node)
-  return dest_node_;
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_node_t_int.node_1)
+  return node_1_;
 }
-::routeguide::node_t* node_t_dual_node_t_int::release_dest_node() {
+::chord::m_node_t* m_node_t_node_t_int::release_node_1() {
   
-  ::routeguide::node_t* temp = dest_node_;
-  dest_node_ = NULL;
+  ::chord::m_node_t* temp = node_1_;
+  node_1_ = NULL;
   return temp;
 }
-void node_t_dual_node_t_int::set_allocated_dest_node(::routeguide::node_t* dest_node) {
-  delete dest_node_;
-  dest_node_ = dest_node;
-  if (dest_node) {
+void m_node_t_node_t_int::set_allocated_node_1(::chord::m_node_t* node_1) {
+  delete node_1_;
+  node_1_ = node_1;
+  if (node_1) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.dest_node)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_node_t_int.node_1)
 }
 
-// optional .routeguide.node_t node_param1 = 2;
-bool node_t_dual_node_t_int::has_node_param1() const {
-  return !_is_default_instance_ && node_param1_ != NULL;
+// optional .chord.m_node_t node_2 = 2;
+bool m_node_t_node_t_int::has_node_2() const {
+  return !_is_default_instance_ && node_2_ != NULL;
 }
-void node_t_dual_node_t_int::clear_node_param1() {
-  if (GetArenaNoVirtual() == NULL && node_param1_ != NULL) delete node_param1_;
-  node_param1_ = NULL;
+void m_node_t_node_t_int::clear_node_2() {
+  if (GetArenaNoVirtual() == NULL && node_2_ != NULL) delete node_2_;
+  node_2_ = NULL;
 }
-const ::routeguide::node_t& node_t_dual_node_t_int::node_param1() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.node_param1)
-  return node_param1_ != NULL ? *node_param1_ : *default_instance_->node_param1_;
+const ::chord::m_node_t& m_node_t_node_t_int::node_2() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.node_2)
+  return node_2_ != NULL ? *node_2_ : *default_instance_->node_2_;
 }
-::routeguide::node_t* node_t_dual_node_t_int::mutable_node_param1() {
+::chord::m_node_t* m_node_t_node_t_int::mutable_node_2() {
   
-  if (node_param1_ == NULL) {
-    node_param1_ = new ::routeguide::node_t;
+  if (node_2_ == NULL) {
+    node_2_ = new ::chord::m_node_t;
   }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.node_param1)
-  return node_param1_;
+  // @@protoc_insertion_point(field_mutable:chord.m_node_t_node_t_int.node_2)
+  return node_2_;
 }
-::routeguide::node_t* node_t_dual_node_t_int::release_node_param1() {
+::chord::m_node_t* m_node_t_node_t_int::release_node_2() {
   
-  ::routeguide::node_t* temp = node_param1_;
-  node_param1_ = NULL;
+  ::chord::m_node_t* temp = node_2_;
+  node_2_ = NULL;
   return temp;
 }
-void node_t_dual_node_t_int::set_allocated_node_param1(::routeguide::node_t* node_param1) {
-  delete node_param1_;
-  node_param1_ = node_param1;
-  if (node_param1) {
+void m_node_t_node_t_int::set_allocated_node_2(::chord::m_node_t* node_2) {
+  delete node_2_;
+  node_2_ = node_2;
+  if (node_2) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.node_param1)
+  // @@protoc_insertion_point(field_set_allocated:chord.m_node_t_node_t_int.node_2)
 }
 
-// optional .routeguide.node_t node_param2 = 3;
-bool node_t_dual_node_t_int::has_node_param2() const {
-  return !_is_default_instance_ && node_param2_ != NULL;
-}
-void node_t_dual_node_t_int::clear_node_param2() {
-  if (GetArenaNoVirtual() == NULL && node_param2_ != NULL) delete node_param2_;
-  node_param2_ = NULL;
-}
-const ::routeguide::node_t& node_t_dual_node_t_int::node_param2() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.node_param2)
-  return node_param2_ != NULL ? *node_param2_ : *default_instance_->node_param2_;
-}
-::routeguide::node_t* node_t_dual_node_t_int::mutable_node_param2() {
-  
-  if (node_param2_ == NULL) {
-    node_param2_ = new ::routeguide::node_t;
-  }
-  // @@protoc_insertion_point(field_mutable:routeguide.node_t_dual_node_t_int.node_param2)
-  return node_param2_;
-}
-::routeguide::node_t* node_t_dual_node_t_int::release_node_param2() {
-  
-  ::routeguide::node_t* temp = node_param2_;
-  node_param2_ = NULL;
-  return temp;
-}
-void node_t_dual_node_t_int::set_allocated_node_param2(::routeguide::node_t* node_param2) {
-  delete node_param2_;
-  node_param2_ = node_param2;
-  if (node_param2) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:routeguide.node_t_dual_node_t_int.node_param2)
-}
-
-// optional int64 id = 4;
-void node_t_dual_node_t_int::clear_id() {
+// optional int64 id = 3;
+void m_node_t_node_t_int::clear_id() {
   id_ = GOOGLE_LONGLONG(0);
 }
- ::google::protobuf::int64 node_t_dual_node_t_int::id() const {
-  // @@protoc_insertion_point(field_get:routeguide.node_t_dual_node_t_int.id)
+ ::google::protobuf::int64 m_node_t_node_t_int::id() const {
+  // @@protoc_insertion_point(field_get:chord.m_node_t_node_t_int.id)
   return id_;
 }
- void node_t_dual_node_t_int::set_id(::google::protobuf::int64 value) {
+ void m_node_t_node_t_int::set_id(::google::protobuf::int64 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:routeguide.node_t_dual_node_t_int.id)
+  // @@protoc_insertion_point(field_set:chord.m_node_t_node_t_int.id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace routeguide
+}  // namespace chord
 
 // @@protoc_insertion_point(global_scope)
