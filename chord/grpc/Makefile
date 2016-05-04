@@ -33,7 +33,7 @@ chord.pb.cc: chord.proto
 	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
 
 clean:
-	rm -f *.o grpc/*.pb.cc grpc/*.pb.h greeter_client greeter_server greeter_async_client greeter_async_server
+	rm -f *.o *.pb.cc *.pb.h chord_client chord_server
 
 
 # The following is to test your system and ensure a smoother experience.

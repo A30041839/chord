@@ -2,7 +2,7 @@
 #include <memory>
 #include <string>
 #include <grpc++/grpc++.h>
-
+#include <sstream>
 #include "chord.grpc.pb.h"
 #include "../types.h"
 
@@ -39,7 +39,7 @@ class MessagerClient {
       return node;
     } else {
       cerr << "RPC failed";
-      return NULL;
+      return node_t();
     }
   }
  
@@ -89,7 +89,7 @@ class MessagerClient {
       return node;
     } else {
       cerr << "RPC failed";
-      return NULL;
+      return node_t();
     }
   }
 
@@ -112,7 +112,7 @@ class MessagerClient {
       return node;
     } else {
       cerr << "RPC failed";
-      return NULL;
+      return node_t();
     }
   }
 
@@ -135,7 +135,7 @@ class MessagerClient {
       return node;
     } else {
       cerr << "RPC failed";
-      return NULL;
+      return node_t();
     }
   }
 
@@ -154,8 +154,8 @@ class MessagerClient {
     m_node.set_portno(node.portno);
     m_node.set_machine_name(node.machine_name);
      
-    request.set_node(m_node);
-    reqeust.set_id(id);
+    request.set_allocated_node(&m_node);
+    request.set_id(id);
     // The actual RPC.
     Status status = stub_->updateFingerTable(&context, request, &reply);
 
@@ -187,11 +187,11 @@ class MessagerClient {
     m_node_repl.set_portno(node_repl.portno);
     m_node_repl.set_machine_name(node_repl.machine_name);
      
-    request.set_node_1(m_node);
-    request.set_node_2(m_node_repl);
-    reqeust.set_id(id);
+    request.set_allocated_node_1(&m_node);
+    request.set_allocated_node_2(&m_node_repl);
+    request.set_id(id);
     // The actual RPC.
-    Status status = stub_->updateFingerTable(&context, request, &reply);
+    Status status = stub_->removeNode(&context, request, &reply);
 
     // Act upon its status.
     if (status.ok()) {
