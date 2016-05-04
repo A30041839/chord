@@ -22,7 +22,7 @@ service Messager {
 
 // void reply
 message m_void{
-
+  
 }
 message m_int{
   int64 id = 1;
