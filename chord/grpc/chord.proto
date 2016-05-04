@@ -1,0 +1,55 @@
+// protocol for chord internal message
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "RouteGuideProto";
+option objc_class_prefix = "RTG";
+
+package routeguide;
+
+// Interface exported by the server.
+service Messager { 
+  rpc getPredecessor(m_void) returns (m_node_t) {}
+  rpc setPredecessor(m_node_t) returns (m_void) {}
+  rpc getSuccessor(m_void) returns (m_node_t) {}
+  rpc findSuccessor(m_int) returns (m_node_t) {}
+  rpc findClosestPrecedingFinger(m_int) returns (m_node_t) {}
+  rpc updateFingerTable(m_node_t_int) returns (m_node_t) {}
+  rpc removeNode(m_node_t_node_t_int) returns (m_node_t) {}
+}
+
+// void reply
+message m_void{
+
+}
+message m_int{
+  int64 id = 1;
+}
+message m_node_t {
+  string hostname = 1;
+  int64 id = 2;
+  int32 portno = 3;
+  string machine_name = 4;
+}
+message m_node_t_dual{
+  m_node_t first = 1;
+  m_node_t second = 2;
+}
+message m_node_t_int{
+  m_node_t node = 1;
+  int64 id = 2;
+}
+message m_node_t_node_t_int{
+  m_node_t node = 1;
+  m_node_t_int entry = 2;
+}
+
+message m_node_t_dual_node_t_int{
+  m_node_t dest_node = 1;
+  m_node_t node_param1 = 2;
+  m_node_t node_param2 = 3;
+  int64 id = 4;
+}
+
