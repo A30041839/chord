@@ -1,0 +1,91 @@
+// protocol for chord internal message
+
+syntax = "proto3";
+
+option objc_class_prefix = "GPRC";
+
+package chordRPC;
+
+// Interface exported by the server.
+service rpcsender { 
+  rpc getPredecessor(GetPredecessorRequest) returns (messageNode) {}
+  rpc setPredecessor(SetPredecessorRequest) returns (messageAck) {}
+  rpc getSuccessor(GetSuccessorRequest) returns (messageNode) {}
+  rpc findSuccessor(FindSuccessorRequest) returns (messageNode) {}
+  rpc closestPrecedingFinger(ClosestPrecedingFingerRequest) returns (messageNode) {}
+  rpc updateFingerTable(UpdateFingerTableRequest) returns (messageAck) {}
+  rpc removeNode(RemoveNodeRequest) returns (messageAck) {}
+  rpc storeKey(StoreKeyRequest) returns (messageAck) {}
+  rpc removeDataFromDisk(RemoveDataFromDiskRequest) returns (messageAck) {}
+  rpc removeKey(RemoveKeyRequest) returns (messageAck) {}
+  rpc hasKey(HasKeyRequest) returns (messageBoolAck) {}
+  rpc retrieveKeys(RetrieveKeysRequest) returns (messageKeyList) {}
+}
+
+//return message types
+message messageAck {
+}
+
+message messageBoolAck {
+  bool value = 1;
+}
+
+message messageNode {
+  string hostname = 1;
+  int64 id = 2;
+  int32 portno = 3;
+  string machine_name = 4;
+}
+
+message messageKeyList {
+  string key_list = 1;
+}
+
+//request message types
+message GetSuccessorRequest {
+}
+
+message GetPredecessorRequest {
+}
+
+message SetPredecessorRequest {
+  messageNode node = 1;
+}
+  
+message FindSuccessorRequest {
+  int64 id = 1;
+}
+
+message ClosestPrecedingFingerRequest {
+  int64 id = 1;
+}
+
+message UpdateFingerTableRequest {
+  messageNode node = 1;
+  int64 id = 2;
+}
+
+message RemoveNodeRequest {
+  messageNode node_1 = 1;
+  messageNode node_2 = 2;
+  int64 id = 3;
+}
+
+message StoreKeyRequest {
+  string key = 1;
+}
+
+message RemoveDataFromDiskRequest {
+  string key = 1;
+}
+
+message RemoveKeyRequest {
+  string key = 1;
+}
+
+message HasKeyRequest {
+  string key = 1;
+}
+
+message RetrieveKeysRequest {
+}
