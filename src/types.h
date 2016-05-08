@@ -12,8 +12,8 @@
 #define SERVICE_PORT 2000
 #define SERVICE_RPC_PORT 2001
 #define CHORDNODE_PORT_OFFSET 2002
-#define CHORD_DISK_PATH "/home/haoliang/chord/chord/chord_disk/"
-#define CHORD_INPUT_PATH "/home/haoliang/chord/chord/chord_input_files/"
+#define CHORD_DISK_PATH "/home/haoliang/chord/test/chord_disk/"
+#define CHORD_INPUT_PATH "/home/haoliang/chord/test/chord_input_files/"
 #define SERVICE_DETECT_PORT_BIND 5000
 #define MACHINE_NAME "orangejuice"
 
