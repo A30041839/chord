@@ -359,6 +359,11 @@ namespace CHORD {
     //send value to that node
     node_t dest_node = getKeyHostNode(key);
     sendData(is, dest_node, key, size);
+    std::ostringstream oss;
+    oss <<  "key:" << key << ",key hashcode:" << getHashcode(key) << ",";
+    oss << "This node id:" << thisNode.identifier << ",";
+    oss << "dest node:" << dest_node.machine_name << "," << dest_node.identifier;
+    DEBUG_PRINT(oss.str().c_str());
   }
 
   void chordNode::fetchKeyValue(std::string key) {

@@ -15,7 +15,7 @@
 #define CHORD_DISK_PATH "/home/haoliang/chord/test/chord_disk/"
 #define CHORD_INPUT_PATH "/home/haoliang/chord/test/chord_input_files/"
 #define SERVICE_DETECT_PORT_BIND 5000
-#define MACHINE_NAME "orangejuice"
+#define MACHINE_NAME "OrangeJuice"
 
 
 #define IDENTIFIER_LEN 32

@@ -69,13 +69,15 @@ inline identifier_t getHashcode(std::string valuetoHash) {
   sha1::calc(src, length, hashcode);
   char* hex = new char[50];
   sha1::toHexString(hashcode, hex);
-  //we only keep the lower 32 bits of sha1
+  //we only keep the lower 64 bits of sha1
   identifier_t hash;
   int n = (int)strlen(hex);
-  for (int i = n - 8; i < n; ++i) {
+  for (int i = n - 16; i < n; ++i) {
     hash <<= 4;
     hash += hex_to_dec[hex[i]];
   }
+  delete[] hashcode;
+  delete[] hex;
   return hash;
 }
 

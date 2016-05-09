@@ -16,6 +16,7 @@
 #include <cmath>
 #include <unordered_map>
 #include <fstream>
+#include <sstream>
 #include <thread>
 #include <chrono>
 #include "chordMessager/chordMessager.h"

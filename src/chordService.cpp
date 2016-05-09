@@ -152,7 +152,6 @@ namespace CHORD {
           chordMessager::chordMessageBase* inmsg = nullptr;
           chordMessager::chordMessager::deserializeMessage(message_str, inmsg);
           chordMessager::chordMessageDetectNodeResponse* outmsg = new chordMessager::chordMessageDetectNodeResponse(serviceChordNode->thisNode, inmsg->getNodeParam()[0], serviceChordNode->thisNode);
-          //printf("%s\n",outmsg->serialize().c_str());
           delete inmsg;
           inmsg = nullptr;
           serviceChordNode->makeRequest(outmsg, inmsg);
