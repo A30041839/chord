@@ -49,7 +49,7 @@ class rpcsenderClient {
 
       // Act upon its status.
       if (status.ok()) {
-        return node_t(reply.hostname(), reply.id(), reply.portno(), reply.machine_name());
+        return node_t(reply.hostname(), reply.id(), reply.portno_disp(), reply.portno_rpc(), reply.machine_name());
       } else {
         throw ERRORS::chordRPCFail();
       }
@@ -59,19 +59,17 @@ class rpcsenderClient {
     // from the server.
     void setPredecessor(const node_t& node) {
       SetPredecessorRequest request;
-      messageNode m_node;
       messageAck reply;
 
       // Context for the client. It could be used to convey extra information to
       // the server and/or tweak certain RPC behaviors.
       ClientContext context;
 
-      m_node.set_hostname(node.hostname);
-      m_node.set_id(node.identifier);
-      m_node.set_portno(node.portno);
-      m_node.set_machine_name(node.machine_name);
-
-      request.set_allocated_node(&m_node);
+      request.mutable_node()->set_hostname(node.hostname);
+      request.mutable_node()->set_id(node.identifier);
+      request.mutable_node()->set_portno_disp(node.portno_disp);
+      request.mutable_node()->set_portno_rpc(node.portno_rpc);
+      request.mutable_node()->set_machine_name(node.machine_name);
 
       // The actual RPC.
       Status status = stub_->setPredecessor(&context, request, &reply);
@@ -99,7 +97,7 @@ class rpcsenderClient {
 
       // Act upon its status.
       if (status.ok()) {
-        return node_t(reply.hostname(), reply.id(), reply.portno(), reply.machine_name());
+        return node_t(reply.hostname(), reply.id(), reply.portno_disp(), reply.portno_rpc(), reply.machine_name());
       } else {
         throw ERRORS::chordRPCFail();
       }
@@ -120,7 +118,7 @@ class rpcsenderClient {
 
       // Act upon its status.
       if (status.ok()) {
-        return node_t(reply.hostname(), reply.id(), reply.portno(), reply.machine_name());
+        return node_t(reply.hostname(), reply.id(), reply.portno_disp(), reply.portno_rpc(), reply.machine_name());
       } else {
         throw ERRORS::chordRPCFail();
       }
@@ -141,7 +139,7 @@ class rpcsenderClient {
 
       // Act upon its status.
       if (status.ok()) {
-        return node_t(reply.hostname(), reply.id(), reply.portno(), reply.machine_name());
+        return node_t(reply.hostname(), reply.id(), reply.portno_disp(), reply.portno_rpc(), reply.machine_name());
       } else {
         throw ERRORS::chordRPCFail();
       }
@@ -150,7 +148,6 @@ class rpcsenderClient {
     void updateFingerTable(const node_t& node, identifier_t id) {
       // Data we are sending to the server.
       UpdateFingerTableRequest request;
-      messageNode m_node;
       // Container for the data we expect from the server.
       messageAck reply;
 
@@ -158,13 +155,13 @@ class rpcsenderClient {
       // the server and/or tweak certain RPC behaviors.
       ClientContext context;
 
-      m_node.set_hostname(node.hostname);
-      m_node.set_id(node.identifier);
-      m_node.set_portno(node.portno);
-      m_node.set_machine_name(node.machine_name);
-
-      request.set_allocated_node(&m_node);
+      request.mutable_node()->set_hostname(node.hostname);
+      request.mutable_node()->set_id(node.identifier);
+      request.mutable_node()->set_portno_disp(node.portno_disp);
+      request.mutable_node()->set_portno_rpc(node.portno_rpc);
+      request.mutable_node()->set_machine_name(node.machine_name);
       request.set_id(id);
+
       // The actual RPC.
       Status status = stub_->updateFingerTable(&context, request, &reply);
 
@@ -175,30 +172,30 @@ class rpcsenderClient {
         throw ERRORS::chordRPCFail();
       }
     }
+
     void removeNode(const node_t& node, const node_t& node_repl, identifier_t id) {
       // Data we are sending to the server.
       RemoveNodeRequest request;
-      messageNode m_node, m_node_repl;
       // Container for the data we expect from the server.
       messageAck reply;
 
       // Context for the client. It could be used to convey extra information to
       // the server and/or tweak certain RPC behaviors.
       ClientContext context;
+      request.mutable_node_1()->set_hostname(node.hostname);
+      request.mutable_node_1()->set_id(node.identifier);
+      request.mutable_node_1()->set_portno_disp(node.portno_disp);
+      request.mutable_node_1()->set_portno_rpc(node.portno_rpc);
+      request.mutable_node_1()->set_machine_name(node.machine_name);
 
-      m_node.set_hostname(node.hostname);
-      m_node.set_id(node.identifier);
-      m_node.set_portno(node.portno);
-      m_node.set_machine_name(node.machine_name);
+      request.mutable_node_2()->set_hostname(node_repl.hostname);
+      request.mutable_node_2()->set_id(node_repl.identifier);
+      request.mutable_node_2()->set_portno_disp(node_repl.portno_disp);
+      request.mutable_node_2()->set_portno_rpc(node_repl.portno_rpc);
+      request.mutable_node_2()->set_machine_name(node_repl.machine_name);
 
-      m_node_repl.set_hostname(node_repl.hostname);
-      m_node_repl.set_id(node_repl.identifier);
-      m_node_repl.set_portno(node_repl.portno);
-      m_node_repl.set_machine_name(node_repl.machine_name);
-
-      request.set_allocated_node_1(&m_node);
-      request.set_allocated_node_2(&m_node_repl);
       request.set_id(id);
+
       // The actual RPC.
       Status status = stub_->removeNode(&context, request, &reply);
 

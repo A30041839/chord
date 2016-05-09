@@ -10,12 +10,13 @@
 
 namespace CHORD {
   //implements constructor
-  chordNode::chordNode(std::string _hostname, int _portno, std::string _machine_name) {
+  chordNode::chordNode(std::string _hostname, int _portno_disp, int _portno_rpc, std::string _machine_name) {
     DEBUG_PRINT("Creating chordNode");
     thisNode.hostname = _hostname;
     thisNode.machine_name = _machine_name;
     thisNode.identifier = getHashcode(_machine_name);
-    thisNode.portno = _portno;
+    thisNode.portno_disp = _portno_disp;
+    thisNode.portno_rpc = _portno_rpc;
 
     gotDetectNodeResponse = initiated = false;
 
@@ -68,7 +69,7 @@ namespace CHORD {
     }
     messagerPool[newmessager].setMode(1);
     messagerPool[newmessager].setRemoteHost(outmsg->getDestHostname());
-    messagerPool[newmessager].setRemotePort(outmsg->getDestPortno());
+    messagerPool[newmessager].setRemotePort(outmsg->getDestDispatcherPortno());
     messagerPool[newmessager].init();
     messagerPool[newmessager].startConnect();
     std::string serialized_msg = outmsg->serialize();
@@ -98,7 +99,7 @@ namespace CHORD {
     if (thisNode == dest_node) {
       return getSuccessor();
     }
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     node_t ret = rpcSender->getSuccessor();
@@ -111,7 +112,7 @@ namespace CHORD {
     if (thisNode == dest_node) {
       return getPredecessor();
     }
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     node_t ret = rpcSender->getPredecessor();
@@ -121,7 +122,7 @@ namespace CHORD {
   }
 
   void chordNode::updateRemoteFingerTable(const node_t& dest_node, const node_t& node_param, identifier_t int_param) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     rpcSender->updateFingerTable(node_param, int_param);
@@ -130,7 +131,7 @@ namespace CHORD {
   }
 
   void chordNode::removeRemoteNode(const node_t& dest_node, const node_t& node_param1, const node_t& node_param2, identifier_t int_param) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     rpcSender->removeNode(node_param1, node_param2, int_param);
@@ -139,7 +140,7 @@ namespace CHORD {
   }
 
   void chordNode::setRemotePredecessor(const node_t& dest_node, const node_t& node_param) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     rpcSender->setPredecessor(node_param);
@@ -151,7 +152,7 @@ namespace CHORD {
     if (thisNode == dest_node) {
       return findSuccessor(int_param);
     }
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
 
@@ -165,7 +166,7 @@ namespace CHORD {
     if (thisNode == dest_node) {
       return closestPrecedingFinger(int_param);
     }
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
 
@@ -343,8 +344,8 @@ namespace CHORD {
     return thisNode.identifier;
   }
 
-  int chordNode::getPortno() {
-    return thisNode.portno;
+  int chordNode::getDispatcherPortno() {
+    return thisNode.portno_disp;
   }
 
   std::string chordNode::getMachineName() {
@@ -373,7 +374,7 @@ namespace CHORD {
     }
     messagerPool[newmessager].setMode(1);
     messagerPool[newmessager].setRemoteHost(outmsg->getDestHostname());
-    messagerPool[newmessager].setRemotePort(outmsg->getDestPortno());
+    messagerPool[newmessager].setRemotePort(outmsg->getDestDispatcherPortno());
     messagerPool[newmessager].init();
     messagerPool[newmessager].startConnect();
     std::string serialized_msg = outmsg->serialize();
@@ -427,7 +428,7 @@ namespace CHORD {
   }
 
   void chordNode::addKeyRemote(std::string key, const node_t& dest_node) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     rpcSender->storeKey(key);
@@ -451,7 +452,7 @@ namespace CHORD {
   }
 
   void chordNode::removeKeyRemote(std::string key, const node_t& dest_node) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     rpcSender->removeKey(key);
@@ -473,7 +474,7 @@ namespace CHORD {
   }
 
   bool chordNode::hasKeyRemote(std::string key, const node_t& dest_node) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     bool ret = rpcSender->hasKey(key);
@@ -491,11 +492,11 @@ namespace CHORD {
   }
 
   std::vector<std::string> chordNode::getRemoteStoredKeys(const node_t& dest_node) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
     std::string s_keys = rpcSender->retrieveKeys();
-    std::vector<std::string> keys = splitStr(s_keys, ':');
+    std::vector<std::string> keys = splitStr(s_keys, ';');
     delete rpcSender;
     rpcSender = nullptr;
     return keys;
@@ -524,7 +525,7 @@ namespace CHORD {
   }
 
   void chordNode::removeRemoteDataFromDisk(std::string key, const node_t& dest_node) {
-    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno);
+    std::string addr = dest_node.hostname + ":" + std::to_string(dest_node.portno_rpc);
     rpcSender = new rpcsenderClient(grpc::CreateChannel(
           addr, grpc::InsecureChannelCredentials()));
 
@@ -549,7 +550,7 @@ namespace CHORD {
     }
     messagerPool[newmessager].setMode(1);
     messagerPool[newmessager].setRemoteHost(outmsg->getDestHostname());
-    messagerPool[newmessager].setRemotePort(outmsg->getDestPortno());
+    messagerPool[newmessager].setRemotePort(outmsg->getDestDispatcherPortno());
     messagerPool[newmessager].init();
     messagerPool[newmessager].startConnect();
     std::string serialized_msg = outmsg->serialize();

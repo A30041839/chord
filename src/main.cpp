@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-  CHORD::chordService* service = CHORD::chordService::createService(SERVICE_HOSTNAME, SERVICE_PORT, SERVICE_RPC_PORT, MACHINE_NAME);
+  CHORD::chordService* service = CHORD::chordService::createService(SERVICE_HOSTNAME, SERVICE_DISP_PORT, SERVICE_RPC_PORT, MACHINE_NAME);
 
   string cmd;
   service->setWorkingDir(CHORD_DISK_PATH);
@@ -37,7 +37,6 @@ int main(int argc, const char * argv[]) {
       string fname;
       cin >> fname;
       service->storeFile(CHORD_INPUT_PATH + fname);
-      cout << "save complete" << endl;
     }else if (cmd == "leave") {
       service->closeService();
     }else if (cmd == "get") {

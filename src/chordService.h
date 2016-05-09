@@ -50,8 +50,9 @@ namespace CHORD {
     static void detectNodes();
     static void detectNodesResponse();
     static bool initialized;
+    static bool rpcserverInitialized;
     public:
-    static chordService* createService(std::string hostname, int portno_dispatcher, int portno_rpc, std::string machine_name);
+    static chordService* createService(std::string hostname, int portno_disp, int portno_rpc, std::string machine_name);
     static chordService* getServiceInstance();
     static bool isInitialized();
     static void dumpFingerTable();

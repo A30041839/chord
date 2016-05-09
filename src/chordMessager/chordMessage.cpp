@@ -27,8 +27,8 @@ namespace chordMessager {
     return src_node.identifier;
   }
 
-  int chordMessageBase::getSrcPortno() {
-    return src_node.portno;
+  int chordMessageBase::getSrcDispatcherPortno() {
+    return src_node.portno_disp;
   }
 
   std::string chordMessageBase::getSrcMachineName() {
@@ -47,8 +47,8 @@ namespace chordMessager {
     return dest_node.hostname;
   }
 
-  int chordMessageBase::getDestPortno() {
-    return dest_node.portno;
+  int chordMessageBase::getDestDispatcherPortno() {
+    return dest_node.portno_disp;
   }
 
   identifier_t chordMessageBase::getDestIdentifier() {
@@ -133,7 +133,7 @@ namespace chordMessager {
   std::string chordMessageDataInfo::serialize() {
     DEBUG_PRINT("chordMessageDataInfo being serialized.");
     char buf[200];
-    sprintf(buf, "type:%d|key:%s|int_param:%lld|", messageType, key_params[0].c_str(), int_params[0]);
+    sprintf(buf, "type:%d|key:%s|int_param:%llu|", messageType, key_params[0].c_str(), int_params[0]);
     return std::string(buf);
   }
 

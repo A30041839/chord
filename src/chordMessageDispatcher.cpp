@@ -19,7 +19,7 @@ namespace CHORD {
     DEBUG_PRINT("Creating chordMessageDispatcher");
     thisNode = _thisNode;
     listener.setMode(0);
-    listener.setPortno(thisNode->getPortno());
+    listener.setPortno(thisNode->getDispatcherPortno());
     threadCleaner = new std::thread(cleanThread);
     listener.init();
   }
@@ -74,5 +74,9 @@ namespace CHORD {
     delete outmsg;
     //free messager
     thisNode->freeMessager(newmessager);
+  }
+
+  bool chordMessageDispatcher::isListenning() {
+    return listener.isListenning;
   }
 }

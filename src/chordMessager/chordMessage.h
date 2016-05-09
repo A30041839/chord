@@ -52,12 +52,12 @@ namespace chordMessager {
       virtual node_t getSrcNode();
       virtual std::string getSrcHostname();
       virtual identifier_t getSrcIdentifier();
-      virtual int getSrcPortno();
+      virtual int getSrcDispatcherPortno();
       virtual std::string getSrcMachineName();
 
       virtual node_t getDestNode();
       virtual std::string getDestHostname();
-      virtual int getDestPortno();
+      virtual int getDestDispatcherPortno();
       virtual identifier_t getDestIdentifier();
       virtual std::string getDestMachineName();
 

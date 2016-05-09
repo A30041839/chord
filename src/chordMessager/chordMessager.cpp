@@ -14,6 +14,7 @@ namespace chordMessager {
     DEBUG_PRINT("Start listen loop");
     listen(sockfd, 5);
     clilen = sizeof(cli_addr);
+    isListenning = true;
     int newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
     if (newsockfd < 0) {
       throw ERRORS::chordMessagerSocketAcceptFail();
@@ -75,9 +76,9 @@ namespace chordMessager {
     if (type == chordMessageType::messageAck) {
       inmsg = new chordMessageAck(node_t(), node_t());
     }else if (type == chordMessageType::messageDetectNode) {
-      inmsg = new chordMessageDetectNode(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
+      inmsg = new chordMessageDetectNode(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno_disp"].c_str()), atoi(mp["portno_rpc"].c_str()), mp["machine_name"]));
     }else if (type == chordMessageType::messageDetectNodeResponse) {
-      inmsg = new chordMessageDetectNodeResponse(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno"].c_str()), mp["machine_name"]));
+      inmsg = new chordMessageDetectNodeResponse(node_t(), node_t(), node_t(mp["hostname"], atoll(mp["identifier"].c_str()), atoi(mp["portno_disp"].c_str()), atoi(mp["portno_rpc"].c_str()), mp["machine_name"]));
     }else if (type == chordMessageType::messageDataInfo) {
       inmsg = new chordMessageDataInfo(node_t(), node_t(), mp["key"], atoll(mp["int_param"].c_str()));
     }else if (type == chordMessageType::messageDataRequest) {

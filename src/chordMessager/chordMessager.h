@@ -24,6 +24,7 @@
 namespace chordMessager {
   class chordMessager : public messagerBase {
     public:
+      bool isListenning = false;
       int startListenLoop();
       void setSocketFileDescriptor(int sockfd);
       static void deserializeMessage(std::string, chordMessageBase*&);

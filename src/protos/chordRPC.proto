@@ -32,9 +32,10 @@ message messageBoolAck {
 
 message messageNode {
   string hostname = 1;
-  int64 id = 2;
-  int32 portno = 3;
-  string machine_name = 4;
+  uint64 id = 2;
+  int32 portno_disp = 3;
+  int32 portno_rpc = 4;
+  string machine_name = 5;
 }
 
 message messageKeyList {
@@ -53,22 +54,22 @@ message SetPredecessorRequest {
 }
   
 message FindSuccessorRequest {
-  int64 id = 1;
+  uint64 id = 1;
 }
 
 message ClosestPrecedingFingerRequest {
-  int64 id = 1;
+  uint64 id = 1;
 }
 
 message UpdateFingerTableRequest {
   messageNode node = 1;
-  int64 id = 2;
+  uint64 id = 2;
 }
 
 message RemoveNodeRequest {
   messageNode node_1 = 1;
   messageNode node_2 = 2;
-  int64 id = 3;
+  uint64 id = 3;
 }
 
 message StoreKeyRequest {

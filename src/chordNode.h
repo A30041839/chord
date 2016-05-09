@@ -33,7 +33,7 @@ namespace CHORD {
     node_t node;
     std::string to_string() {
       char buf[200];
-      sprintf(buf, "start:%lld|", start);
+      sprintf(buf, "start:%llu|", start);
       std::string str(buf);
       str.append(node.to_string());
       return str;
@@ -74,7 +74,7 @@ namespace CHORD {
 
       ~chordNode();
 
-      chordNode(std::string _hostname, int _portno, std::string machine_name);
+      chordNode(std::string _hostname, int _portno_disp, int _portno_rpc, std::string machine_name);
 
       //get the index of a usable messager
       int getUsableMessager();
@@ -89,7 +89,7 @@ namespace CHORD {
       identifier_t getIdentifier();
 
       //get node's port number
-      int getPortno();
+      int getDispatcherPortno();
 
       //get node's machine name
       std::string getMachineName();

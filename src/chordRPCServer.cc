@@ -37,13 +37,14 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     node_t predecessor = thisNode->getPredecessor();
     reply->set_hostname(predecessor.hostname);
     reply->set_id(predecessor.identifier);
-    reply->set_portno(predecessor.portno);
+    reply->set_portno_disp(predecessor.portno_disp);
+    reply->set_portno_rpc(predecessor.portno_rpc);
     reply->set_machine_name(predecessor.machine_name);
     return Status::OK;
   }
 
   Status setPredecessor(ServerContext* context, const SetPredecessorRequest* request, messageAck* reply) override{
-    node_t predecessor(request->node().hostname(), request->node().id(), request->node().portno(), request->node().machine_name());
+    node_t predecessor(request->node().hostname(), request->node().id(), request->node().portno_disp(), request->node().portno_rpc(), request->node().machine_name());
     thisNode->predecessor = predecessor;
     return Status::OK;
   } 
@@ -52,7 +53,8 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     node_t successor = thisNode->getSuccessor();
     reply->set_hostname(successor.hostname);
     reply->set_id(successor.identifier);
-    reply->set_portno(successor.portno);
+    reply->set_portno_disp(successor.portno_disp);
+    reply->set_portno_rpc(successor.portno_rpc);
     reply->set_machine_name(successor.machine_name);
     return Status::OK;		
   }
@@ -61,7 +63,8 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     node_t node = thisNode->findSuccessor(request->id());
     reply->set_hostname(node.hostname);
     reply->set_id(node.identifier);
-    reply->set_portno(node.portno);
+    reply->set_portno_disp(node.portno_disp);
+    reply->set_portno_rpc(node.portno_rpc);
     reply->set_machine_name(node.machine_name);
     return Status::OK;
   }
@@ -70,7 +73,8 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     node_t node = thisNode->closestPrecedingFinger(request->id());
     reply->set_hostname(node.hostname);
     reply->set_id(node.identifier);
-    reply->set_portno(node.portno);
+    reply->set_portno_disp(node.portno_disp);
+    reply->set_portno_rpc(node.portno_rpc);
     reply->set_machine_name(node.machine_name);
     return Status::OK;
   }
@@ -80,7 +84,8 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     identifier_t id = request->id();
     node.hostname = request->node().hostname();
     node.identifier = request->node().id();
-    node.portno = request->node().portno();
+    node.portno_disp = request->node().portno_disp();
+    node.portno_rpc = request->node().portno_rpc();
     node.machine_name = request->node().machine_name();
     thisNode->updateFingerTable(node, id);
     return Status::OK;
@@ -91,12 +96,14 @@ class rpcsenderServiceImpl final : public rpcsender::Service {
     identifier_t id = request->id();
     node1.hostname = request->node_1().hostname();
     node1.identifier = request->node_1().id();
-    node1.portno = request->node_1().portno();
+    node1.portno_disp = request->node_1().portno_disp();
+    node1.portno_rpc = request->node_1().portno_rpc();
     node1.machine_name = request->node_1().machine_name();
 
     node2.hostname = request->node_2().hostname();
     node2.identifier = request->node_2().id();
-    node2.portno = request->node_2().portno();
+    node2.portno_disp = request->node_2().portno_disp();
+    node2.portno_rpc = request->node_2().portno_rpc();
     node2.machine_name = request->node_2().machine_name();
     thisNode->removeNode(node1, id, node2);
     return Status::OK;

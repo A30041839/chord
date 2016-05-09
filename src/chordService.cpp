@@ -18,22 +18,25 @@ namespace CHORD {
   std::thread* chordService::serviceRPCServerThread = nullptr;
   rpcsenderServiceImpl* chordService::rpc_service = nullptr;
   bool chordService::initialized = false;
+  bool chordService::rpcserverInitialized = false;
 
   chordService::chordService() {
     DEBUG_PRINT("Creating Chord service.");
   }
 
-  chordService* chordService::createService(std::string hostname, int portno_dispatcher, int portno_rpc, std::string machine_name) {
+  chordService* chordService::createService(std::string hostname, int portno_disp, int portno_rpc, std::string machine_name) {
     if (serviceInstance == nullptr) {
       //initiate service here
       serviceInstance = new chordService();
-      serviceChordNode = new chordNode(hostname, portno_dispatcher, machine_name);
+      serviceChordNode = new chordNode(hostname, portno_disp, portno_rpc, machine_name);
       //bind chordNode to dispatcher
       serviceDispatcher = new chordMessageDispatcher(serviceChordNode);
       serviceDispatcherThread = new std::thread(startDispatcher);
       rpc_service = new rpcsenderServiceImpl();
       rpc_service->bindNode(serviceChordNode);
       serviceRPCServerThread = new std::thread(startRPCServer, hostname + ":" + std::to_string(portno_rpc));
+      while (!serviceDispatcher->isListenning() or !rpcserverInitialized) {
+      }
       detectNodes();
       while (!serviceChordNode->initiated) {
       }
@@ -57,8 +60,9 @@ namespace CHORD {
     builder.RegisterService(rpc_service);
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::string info =  "Server listening on " + server_address;
+    std::string info =  "RPC Server listening on " + server_address;
     DEBUG_PRINT(info.c_str());
+    rpcserverInitialized = true;
     // Wait for the server to shutdown. Note that some other thread must be
     // responsible for shutting down the server for this call to ever return.
     server->Wait();
@@ -102,8 +106,6 @@ namespace CHORD {
       //ask chordnode to do self fingertable update
       DEBUG_PRINT("this chord node is the first in the network.");
       node_t dummy;
-      dummy.hostname = "";
-      dummy.identifier = dummy.portno = 0;
       serviceChordNode->join(dummy);
     }
     close(fd);
@@ -201,8 +203,9 @@ namespace CHORD {
       is.seekg(0, is.beg);
       serviceChordNode->storeKeyValue(basename, is, size);
       is.close();
+      printf("file save success!\n");
     } catch (ERRORS::chordFileOpenFail) {
-      //printf("file not exist!\n");
+      printf("file does not exist!\n");
     }
   }
 

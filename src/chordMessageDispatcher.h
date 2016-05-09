@@ -38,6 +38,7 @@ namespace CHORD {
       void startListen();
       static void dispatchRequest(int);
       static void cleanThread();
+      bool isListenning();
   };
 }
 
